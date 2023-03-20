@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../styles/Home.module';
+@import '../styles/globals.css';
+
+body, html, #app, .App, .home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+@layer base{
+    [type='text'],
+    [type='email'],
+    [type='url'],
+    [type='password'],
+    [type='number'],
+    [type='date'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='week'],
+    [multiple],
+    textarea,
+    select{
+        @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-primary-middle focus:ring-primary-middle;
+    }
+
+    body {
+        @apply dark:bg-dark
+    }
+}
+
+@layer components {
+
+    .btn {
+        @apply rounded-xl py-1 px-3 font-bold cursor-pointer shadow-md hover:-translate-y-0.5 transform transition duration-300
+    }
+
+    .btn-gray-out {
+        @apply bg-gray-300 text-white dark:bg-gray-700 dark:text-gray-400 rounded-xl py-1 px-3 font-bold cursor-not-allowed shadow-md;
+    }
+
+    .primary-dark {
+        @apply bg-primary-dark hover:bg-primary-light text-white;
+    }
+    
+    .primary-middle {
+        @apply bg-primary-middle hover:bg-primary-light active:bg-primary-dark text-white;
+    }
+    
+    .primary-light {
+        @apply bg-primary-light active:bg-primary-middle text-white;
+    }
+    
+    .secondary-dark {
+        @apply bg-secondary-dark hover:bg-secondary-light text-white;
+    }
+    
+    .secondary-middle {
+        @apply bg-secondary-middle hover:bg-secondary-light active:bg-secondary-dark text-white;
+    }
+    
+    .secondary-light {
+        @apply bg-secondary-light active:bg-secondary-middle text-white;
+    }
+    
+    .left-icon {
+        @apply h-6 align-middle mr-3 ml-1;
+    }
+
+    .btn-close {
+        /* background: transparent url("asset/icon/close-btn.svg")50%/1em auto no-repeat; */
+        box-sizing: initial;
+        @apply p-1 absolute right-2 top-2 h-2 w-2 border-none rounded-2xl opacity-50;
+    }
+     
+    .instructions-container {
+        @apply relative border border-opacity-30 bg-opacity-30 rounded-2xl items-center flex flex-wrap p-2 pr-8 text-sm;
+    }
+}
+
+.bg-dark, .bg-dark-hover:hover {
+    fill-opacity: 1;
+    background-color: rgba(31,33,40,1);
+}
+
+.bg-dark-half, .bg-dark-half-hover:hover {
+    fill-opacity: 0.5;
+    background-color: rgba(31,33,40,0.5);
+}
