@@ -1,7 +1,8 @@
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import { ActiveLink } from "./ActiveLink";
 
-export default function Navbar() {
+export function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
@@ -47,22 +48,22 @@ export default function Navbar() {
                 <div className="nav-titles flex">
                     <div>
                         <h1 className="mr-8">
-                            <a href="/login">Home</a>
+                            <ActiveLink text="Home" href="/" />
                         </h1>
                     </div>
                     <div>
                         <h1 className="mr-8">
-                            <a href="/login">Login</a>
+                            <ActiveLink text="Login" href="/login" />
                         </h1>
                     </div>
                     <div>
                         <h1 className="mr-8">
-                            <a href="/building-viewer">Building</a>
+                            <ActiveLink text="Building" href="/building-viewer" />
                         </h1>
                     </div>
                     <div>
                         <h1 className="mr-8">
-                            <a href="/map">Map</a>
+                            <ActiveLink text="Map" href="/map" />
                         </h1>
                     </div>                    
                 </div>
