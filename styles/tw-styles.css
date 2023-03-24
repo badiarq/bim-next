@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '../styles/Home.module';
 @import '../styles/globals.css';
 
 body, html, #app, .App, .home {

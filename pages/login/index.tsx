@@ -2,7 +2,7 @@ import { useAppContext } from "@/middleware/context-provider";
 import { LoginTab } from "@/components/user/login-tab";
 import { useRouter } from 'next/navigation';
 
-export default function HomePage() {
+export default function LoginPage() {
   const [state] = useAppContext();
   const router = useRouter();
 
@@ -11,7 +11,7 @@ export default function HomePage() {
         // return <Navigate to="/map" />
     } else {
         return (
-            <div className="home">
+            <div className="login">
                 <LoginTab />
             </div>
         )
