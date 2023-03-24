@@ -1,6 +1,9 @@
+import { FC } from "react";
+import Link from "next/link";
 import { BasicLayout } from "@/components/layouts/basic-layout"
 
 export default function MapPage() {
+
   return (
     <>
         <BasicLayout

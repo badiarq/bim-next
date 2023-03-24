@@ -1,6 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { BasicLayout } from '@/components/layouts/basic-layout'
+import { FC } from "react";
+import { useAppContext } from "../middleware/context-provider";
+import { LoginTab } from "@/components/user/login-tab";
+import Link from "next/link";
+
 // import { Router } from 'next/router'
 // import { BuildingViewer } from "./components/building-viewer";
 // import { MapViewer } from "./components/map-viewer";
@@ -13,18 +18,16 @@ import { BasicLayout } from '@/components/layouts/basic-layout'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  return (
-    <>
-      <BasicLayout 
-        title='BIM-NEXT Platform'
-        description='OPEN BIM Platform - Plateforme BIM - Created by Badr OUAHBI'
-      >
-        <div>
-            <h1 className="font-bold text-4xl text-center mt-10 text-primary-dark">
-              BIM-NEXT Platform
-            </h1>
-        </div>
-      </BasicLayout>
-    </>
-  )
+
+  const [state] = useAppContext();
+
+  if (state.user) {
+    return <Link href="/map"></Link>
+  } else {
+    return (
+      <>
+        <LoginTab />
+      </>
+    )
+  }
 }
