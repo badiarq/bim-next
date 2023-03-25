@@ -7,8 +7,9 @@ interface htmlElementType {
 }
 
 export const InformationAlert = ({children, textColor, backgroundColor} : htmlElementType) => {
+
     return (
-        <div className="login-data-instructions my-5">
+      <div className="login-data-instructions my-5">
         <div className={`instructions-container ${textColor} border-gray-300 dark:border-gray-600 ${backgroundColor}`}>
           <div className="left-icon">
               <svg className="left-icon" viewBox="0 0 24 24" fill="currentColor"
