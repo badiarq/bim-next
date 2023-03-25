@@ -4,7 +4,7 @@ import { Navbar } from '@/components/navbar'
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { ContextProvider } from "@/middleware/context-provider";
-// import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "next-themes";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,11 +34,13 @@ const app = initializeApp(firebaseConfig);
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ContextProvider>
-        <Navbar />
-        <Component {...pageProps} />
-        <ToastContainer theme="colored" />
-      </ContextProvider>
+      <ThemeProvider attribute="class">
+        <ContextProvider>
+          <Navbar />
+          <Component {...pageProps} />
+          <ToastContainer theme="colored" />
+        </ContextProvider>
+      </ThemeProvider>
     </>
   )
 }

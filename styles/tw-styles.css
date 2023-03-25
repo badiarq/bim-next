@@ -4,6 +4,7 @@
 @tailwind utilities;
 @import '../styles/globals.css';
 
+
 body, html, #app, .App, .home {
     display: flex;
     flex-direction: column;

@@ -13,7 +13,7 @@ export const LoginTab:FC = () => {
 
   return (
     <>
-      <PopupContainer backgroundColor="bg-primary-light dark:bg-primary-dark">
+      <PopupContainer>
         <div className="card-body flex-auto">
           <LogoLg />
           <div className="bg-gray-200 dark:bg-middleDark my-5 p-3 rounded-xl grid grid-cols-2 gap-3">
