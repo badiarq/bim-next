@@ -1,12 +1,12 @@
 import Link from "next/link"
 import { useRouter } from "next/router";
 
-type AnchorType = {
+interface anchorType  {
     text: string;
     href: string;
 }
 
-export const ActiveLink = ({text, href} : AnchorType) => {
+export const ActiveLink = ({text, href} : anchorType) => {
 
     const { asPath } = useRouter();
 

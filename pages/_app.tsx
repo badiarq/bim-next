@@ -6,7 +6,7 @@ import { initializeApp } from "firebase/app";
 import { ContextProvider } from "@/middleware/context-provider";
 // import { ThemeProvider } from "next-themes";
 import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const firebaseConfig = {
   // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -29,6 +29,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

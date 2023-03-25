@@ -25,7 +25,7 @@ export const LoginTab:FC = () => {
             <h4 className="text-lg text-center text-gray-400 dark:text-middleDark">Sign in to continue!</h4>
           </div>
 
-          <InformationAlert 
+          {/* <InformationAlert 
             textColor="text-primary-dark dark:text-gray-300"  
             backgroundColor="bg-primary-light15 dark:bg-gray-700"
           >
@@ -37,7 +37,7 @@ export const LoginTab:FC = () => {
                   <strong>Password:</strong> @ABC123
               </div>
             </div>
-          </InformationAlert>
+          </InformationAlert> */}
 
           {userState.user ? (<p>{userState.user.displayName}</p>) : (<LogOutButton />)}
         </div>

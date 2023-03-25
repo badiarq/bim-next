@@ -1,5 +1,12 @@
-import ReactNode from 'react';
-export const InformationAlert = ({children, textColor, backgroundColor}) => {
+import { ReactNode } from "react";
+
+interface htmlElementType {
+  children: ReactNode;
+  textColor: string;
+  backgroundColor: string;
+}
+
+export const InformationAlert = ({children, textColor, backgroundColor} : htmlElementType) => {
     return (
         <div className="login-data-instructions my-5">
         <div className={`instructions-container ${textColor} border-gray-300 dark:border-gray-600 ${backgroundColor}`}>

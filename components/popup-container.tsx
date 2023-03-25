@@ -1,8 +1,8 @@
 import React, { FC, ReactNode } from "react";
 
 interface Props {
-    children : ReactNode,
-    backgroundColor : string
+  children : ReactNode,
+  backgroundColor : string
 }
 
 export const PopupContainer: FC<Props> = ({children}, backgroundColor) => {
