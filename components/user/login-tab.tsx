@@ -15,7 +15,7 @@ export const LoginTab:FC = () => {
     <>
       <PopupContainer>
         <div className="card-body flex-auto">
-          <LogoLg />
+          <LogoLg/>
           <div className="bg-gray-200 dark:bg-middleDark my-5 p-3 rounded-xl grid grid-cols-2 gap-3">
             <LogInButton />
             <p>SignUp</p>

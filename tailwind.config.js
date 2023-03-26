@@ -27,7 +27,8 @@ module.exports = {
           light15: "#EED8A426"
         },
         dark: "#1f2128",
-        middleDark: "#53576a"
+        middleDark: "#53576a",
+        lightyellow: "#fefdf2",
       },
 			fontFamily: {
 				body: ["Golos Text"]

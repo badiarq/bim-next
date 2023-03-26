@@ -1,3 +1,5 @@
+
+
 export const navMenuItems = [
     {
         text: "Home",
@@ -14,5 +16,9 @@ export const navMenuItems = [
     {
         text: "Map",
         href: "/map"
+    },
+    {
+        text: "About",
+        href: "/about"
     }
 ]

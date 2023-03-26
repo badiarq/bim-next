@@ -27,7 +27,7 @@ export function Navbar() {
         if(currentTheme === "dark") {
             return (
                 <>
-                    <button className="btn bg-[#8ecae6] text-white flex w-fit text-sm font-normal"
+                    <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("light")}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 mr-2">
@@ -54,7 +54,7 @@ export function Navbar() {
     
     return (
         <div className="navbar h-10">
-            <nav className="flex flex-row justify-around bg-primary-middle text-white h-10 items-center">
+            <nav className="flex flex-row justify-around bg-primary-middle text-white dark:bg-lightyellow dark:text-primary-dark h-10 items-center">
                 <div className="nav-titles flex">
 
                     {navMenuGenerator}

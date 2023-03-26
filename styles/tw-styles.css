@@ -64,15 +64,15 @@ body, html, #app, .App, .home {
     }
     
     .secondary-dark {
-        @apply bg-secondary-dark hover:bg-secondary-light text-white;
+        @apply bg-secondary-dark hover:bg-secondary-light text-dark;
     }
     
     .secondary-middle {
-        @apply bg-secondary-middle hover:bg-secondary-light active:bg-secondary-dark text-white;
+        @apply bg-secondary-middle hover:bg-secondary-light active:bg-secondary-dark text-dark;
     }
     
     .secondary-light {
-        @apply bg-secondary-light active:bg-secondary-middle text-white;
+        @apply bg-secondary-light active:bg-secondary-middle text-dark;
     }
     
     .left-icon {
@@ -88,14 +88,4 @@ body, html, #app, .App, .home {
     .instructions-container {
         @apply relative border border-opacity-30 bg-opacity-30 rounded-2xl items-center flex flex-wrap p-2 pr-8 text-sm;
     }
-}
-
-.bg-dark, .bg-dark-hover:hover {
-    fill-opacity: 1;
-    background-color: rgba(31,33,40,1);
-}
-
-.bg-dark-half, .bg-dark-half-hover:hover {
-    fill-opacity: 0.5;
-    background-color: rgba(31,33,40,0.5);
 }

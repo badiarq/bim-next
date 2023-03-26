@@ -10,7 +10,7 @@ export const LogInButton: FC = () => {
 
   return (
     <>
-      <button className="btn primary-dark dark:primary-middle" onClick={onLoginClick}>Log in</button>
+      <button className="btn primary-dark dark:secondary-light" onClick={onLoginClick}>Log in</button>
     </>
   )
 };
