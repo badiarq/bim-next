@@ -1,24 +1,24 @@
-
+import t from "../public/locales/en-US"
 
 export const navMenuItems = [
     {
-        text: "Home",
+        text: t.home,
         href: "/"
     },
     {
-        text: "Login",
+        text: t.login,
         href: "/login"
     },
     {
-        text: "Building",
+        text: t.building,
         href: "/building-viewer"
     },
     {
-        text: "Map",
+        text: t.map,
         href: "/map"
     },
     {
-        text: "About",
+        text: t.about,
         href: "/about"
     }
 ]

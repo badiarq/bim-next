@@ -44,7 +44,7 @@ body, html, #app, .App, .home {
 @layer components {
 
     .btn {
-        @apply rounded-xl py-1 px-3 font-bold cursor-pointer shadow-md hover:-translate-y-0.5 transform transition duration-300
+        @apply rounded-xl py-1 px-3 mx-3 font-bold cursor-pointer shadow-md hover:-translate-y-0.5 transform transition duration-300
     }
 
     .btn-gray-out {

@@ -2,6 +2,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect, HTMLInputTypeAttribute } from "react";
 import { ActiveLink } from "@/components/ActiveLink";
 import { navMenuItems } from "@/components/navbar-items";
+import { LanguageSelector } from "@/components/ui-elements/selector"
 
 const navMenuGenerator = navMenuItems.map(({text, href}) => 
     <div>
@@ -10,6 +11,21 @@ const navMenuGenerator = navMenuItems.map(({text, href}) =>
         </h1>
     </div>
 )
+
+const languages = [
+    {
+        option: "English",
+        value: "en",
+    },
+    {
+        option: "Français",
+        value: "fr",
+    },
+    {
+        option: "Español",
+        value: "es",
+    },
+]
 
 export function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -25,8 +41,12 @@ export function Navbar() {
         const currentTheme = theme === "system"? systemTheme : theme;
 
         if(currentTheme === "dark") {
+
+
             return (
                 <>
+                    <LanguageSelector />
+
                     <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("light")}
                     >
@@ -39,6 +59,8 @@ export function Navbar() {
         } else {
             return (
                 <>
+                    <LanguageSelector />
+
                     <button className="btn bg-[#023047] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("dark")}
                     >

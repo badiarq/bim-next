@@ -1,0 +1,22 @@
+{
+	"about": "Sobre nosotros",
+	"building": "Edificio",
+	"button": "Botón",
+	"darkMode": "Modo Oscuro",
+	"dashboard": "Panel de control",
+	"helloWorld": "Hola Mundo!",
+	"home": "Inicio",
+	"lightMode": "Modo Claro",
+	"login": "Iniciar sesión",
+	"logout": "Cerrar sesión",
+	"map": "Mapa",
+	"more": "Más",
+	"pageNotFound": "404 Página no encontrada",
+	"pages": "Páginas",
+	"profile": "Perfil",
+	"project": "Proyecto",
+	"projectManagement": "Gestión de proyectos",
+	"projects": "Proyectos",
+	"select": "Seleccionar",
+	"signUp": "Inscribirse"
+}

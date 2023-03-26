@@ -1,0 +1,22 @@
+{
+	"about": "About",
+	"building": "Building",
+	"button": "Button",
+	"darkMode": "Dark Mode",
+	"dashboard": "Dashboard",
+	"helloWorld": "Hello World!",
+	"home": "Home",
+	"lightMode": "Light Mode",
+	"login": "Login",
+	"logout": "Logout",
+	"map": "Map",
+	"more": "More",
+	"pageNotFound": "404 Page not found",
+	"pages": "Pages",
+	"profile": "Profile",
+	"project": "Project",
+	"projectManagement": "Project Management",
+	"projects": "Projects",
+	"select": "Select",
+	"signUp": "Sign Up"
+}
