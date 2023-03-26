@@ -1,6 +1,15 @@
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
-import { ActiveLink } from "./ActiveLink";
+import { useState, useEffect, HTMLInputTypeAttribute } from "react";
+import { ActiveLink } from "@/components/ActiveLink";
+import { navMenuItems } from "@/components/navbar-items";
+
+const navMenuGenerator = navMenuItems.map(({text, href}) => 
+    <div>
+        <h1 className="mr-8">
+            <ActiveLink key={ href } text={ text } href={ href } />
+        </h1>
+    </div>
+)
 
 export function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -41,31 +50,15 @@ export function Navbar() {
             )
         }
     }
+
     
     return (
         <div className="navbar h-10">
             <nav className="flex flex-row justify-around bg-primary-middle text-white h-10 items-center">
                 <div className="nav-titles flex">
-                    <div>
-                        <h1 className="mr-8">
-                            <ActiveLink text="Home" href="/" />
-                        </h1>
-                    </div>
-                    <div>
-                        <h1 className="mr-8">
-                            <ActiveLink text="Login" href="/login" />
-                        </h1>
-                    </div>
-                    <div>
-                        <h1 className="mr-8">
-                            <ActiveLink text="Building" href="/building-viewer" />
-                        </h1>
-                    </div>
-                    <div>
-                        <h1 className="mr-8">
-                            <ActiveLink text="Map" href="/map" />
-                        </h1>
-                    </div>                    
+
+                    {navMenuGenerator}
+
                 </div>
                 <div className="flex">
                     {renderThemeChanger()}
