@@ -2,7 +2,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect, HTMLInputTypeAttribute } from "react";
 import { ActiveLink } from "@/components/ActiveLink";
 import { navMenuItems } from "@/components/navbar-items";
-import { LanguageSelector } from "@/components/ui-elements/selector"
+//import { LanguageSelector } from "@/components/ui-elements/selector"
 
 const navMenuGenerator = navMenuItems.map(({text, href}) => 
     <div>
@@ -45,7 +45,7 @@ export function Navbar() {
 
             return (
                 <>
-                    <LanguageSelector />
+                    {/* <LanguageSelector /> */}
 
                     <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("light")}
@@ -59,7 +59,7 @@ export function Navbar() {
         } else {
             return (
                 <>
-                    <LanguageSelector />
+                    {/* <LanguageSelector /> */}
 
                     <button className="btn bg-[#023047] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("dark")}

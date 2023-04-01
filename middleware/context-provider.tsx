@@ -27,7 +27,7 @@ import {
     return (
       <appContext.Provider value={[state, dispatch]}>
         <Authenticator />
-            {children}
+          {children}
       </appContext.Provider>
     );
   };

@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import { LogOutButton } from "@/components/user/logout-button";
 
-export default function BuildingViewer(props) {
+interface localeType {
+  locale: string;
+}
+
+export default function BuildingViewer(props : any) {
   const { t } = props;
 
   return (
@@ -21,7 +25,7 @@ export default function BuildingViewer(props) {
   )
 };
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale } : localeType) {
   const response = await import (`../../public/locales/${locale}.json`)
 
   return {

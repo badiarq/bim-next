@@ -1,7 +1,13 @@
 import Head from 'next/head';
 import { ActiveLink } from '@/components/ActiveLink';
+import { useRouter } from 'next/router';
+
+// const { locale, locales } = useRouter();
 
 const Page404 = () => {
+
+	// const {t} = props;
+
 	return (
 		<>
 			<Head>
@@ -34,3 +40,14 @@ const Page404 = () => {
 };
 
 export default Page404;
+
+// export async function getStaticProps({ locale }) {
+//     const response = await import (`../public/locales/${locale}.json`)
+//     console.log(response)
+
+//     return {
+//         props: {
+//             contact: response.default.contact
+//         }
+//     }
+// }

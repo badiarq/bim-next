@@ -23,7 +23,7 @@ export const Authenticator: FC = () => {
   };
 
   const notifyLogin = (userName : String | null) => {
-    toast.success(`${userName}, welcome to Global-BIM !`)
+    toast.success(`${userName}, welcome to Next-BIM !`)
   }
 
   useEffect(() => {
