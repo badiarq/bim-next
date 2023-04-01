@@ -1,13 +1,16 @@
-import '../public/tw-styles.css'
 import type { AppProps } from 'next/app'
-import { Navbar } from '@/components/navbar'
-import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-import { ContextProvider } from "@/middleware/context-provider";
 import { ThemeProvider } from "next-themes";
-//import { LanguageProvider } from "@/context/LanguageContext";
+
+import { NextUIProvider } from '@nextui-org/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+
+import '../public/tw-styles.css'
+import { Navbar } from '@/components/navbar'
+import { ContextProvider } from "@/middleware/context-provider";
+//import { LanguageProvider } from "@/context/LanguageContext";
 
 const firebaseConfig = {
   // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -35,15 +38,17 @@ const app = initializeApp(firebaseConfig);
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <LanguageProvider> */}
-        <ThemeProvider attribute="class">
-          <ContextProvider>
-            <Navbar />
-            <Component {...pageProps} />
-            <ToastContainer theme="colored" />
-          </ContextProvider>
-        </ThemeProvider>
-      {/* </LanguageProvider> */}
+       <NextUIProvider>
+        {/* <LanguageProvider> */}
+          <ThemeProvider attribute="class">
+            <ContextProvider>
+              <Navbar />
+              <Component {...pageProps} />
+              <ToastContainer theme="colored" />
+            </ContextProvider>
+          </ThemeProvider>
+        {/* </LanguageProvider> */}
+      </NextUIProvider>
     </>
   )
 }
