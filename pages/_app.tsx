@@ -8,7 +8,6 @@ import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 
 import '../public/tw-styles.css'
-import { Navbar } from '@/components/navbar'
 import { ContextProvider } from "@/middleware/context-provider";
 //import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -42,7 +41,6 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <LanguageProvider> */}
           <ThemeProvider attribute="class">
             <ContextProvider>
-              <Navbar />
               <Component {...pageProps} />
               <ToastContainer theme="colored" />
             </ContextProvider>

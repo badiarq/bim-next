@@ -42,7 +42,6 @@ export function Navbar() {
 
         if(currentTheme === "dark") {
 
-
             return (
                 <>
                     {/* <LanguageSelector /> */}
