@@ -7,13 +7,14 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
+      locale: ctx?.locale || "en",
       styles: React.Children.toArray([initialProps.styles])
     };
   }
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang={this.props.locale}>
         <Head>{CssBaseline.flush()}</Head>
         <body>
           <Main />
