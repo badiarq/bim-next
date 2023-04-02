@@ -5,15 +5,16 @@ import { Inter } from 'next/font/google'
 
 import { useAppContext } from "../middleware";
 import { LoginTab } from "@/components/user";
-import en from "../lang/EN-US.json"
-import es from "../lang/ES-ES.json"
+//import en from "../public/lang/EN-US.json"
+//import es from "../public/lang/ES-ES.json"
 //import fr from "../lang/FR-FR.json"
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const {asPath, locale, locales} = useRouter()
-  const t = locale === "en-US" ? en : es;
+  console.log('locale : ' + locale)
+//  const t = locale === "en" ? en : es;
 
   const [state] = useAppContext();
 
@@ -22,7 +23,7 @@ export default function Home() {
   } else {
     return (
       <>
-        <h1>{t.helloWorld}</h1>
+        {/* <h1>{t.helloWorld}</h1> */}
         <LoginTab />
       </>
     )

@@ -1,16 +1,20 @@
 {
 	"about": "Sobre nosotros",
+	"BIMPlatform": "Plataforma BIM",
 	"building": "Edificio",
+	"buildingViewer": "Visor - Modelos 3D",
 	"button": "Botón",
 	"darkMode": "Modo Oscuro",
 	"dashboard": "Panel de control",
 	"helloWorld": "Hola Mundo!",
 	"home": "Inicio",
+	"insert3DModel": "insertar modelo 3D",
 	"lightMode": "Modo Claro",
 	"login": "Iniciar sesión",
 	"logout": "Cerrar sesión",
 	"map": "Mapa",
 	"more": "Más",
+	"openBIMPlatform" : "Plataforma OpenBIM",
 	"pageNotFound": "404 Página no encontrada",
 	"pages": "Páginas",
 	"profile": "Perfil",
@@ -18,5 +22,6 @@
 	"projectManagement": "Gestión de proyectos",
 	"projects": "Proyectos",
 	"select": "Seleccionar",
-	"signUp": "Inscribirse"
+	"signUp": "Inscribirse",
+	"visualize3DModels": "Visualize sus modelos 3D aquí"
 }

@@ -1,14 +1,14 @@
 export const listOfLanguages = [
     {
         option: "English",
-        value: "en-US",
+        value: "en",
     },
     {
         option: "Français",
-        value: "fr-FR",
+        value: "fr",
     },
     {
         option: "Español",
-        value: "es-ES",
+        value: "es",
     },
 ]

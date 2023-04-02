@@ -1,22 +1,27 @@
 {
 	"about": "À propos",
+	"BIMPlatform": "Plateforme BIM",
 	"building": "Bâtiment",
+	"buildingViewer": "Visionneuse - Modèles 3D",
 	"button Group": "Groupe de Boutons",
 	"button": "Bouton",
 	"darkMode": "Mode sombre",
 	"dashboard": "Tableau de bord",
 	"helloWorld": "Bonjour tout le monde!",
 	"home": "Acceuil",
+	"insert3DModel": "insérer maquette",
 	"lightMode": "Mode clair",
 	"login": "Connexion",
 	"logout": "Déconnexion",
 	"map": "Map",
 	"more": "Suite",
+	"openBIMPlatform" : "Plateforme OpenBIM",
 	"pageNotFound": "404 Page introuvable",
 	"pages": "Pages",
 	"project": "Projet",
 	"projectManagement": "Gestion de Projet",
 	"projects": "Projets",
 	"select": "Sélectionner",
-	"signUp": "S'inscrire"
+	"signUp": "S'inscrire",
+	"visualize3DModels": "Visualisez vos modèles 3D ici"
 }

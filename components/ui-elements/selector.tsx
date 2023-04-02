@@ -1,46 +1,42 @@
-// import { listOfLanguages } from "../../lang/languages"
-// import { useRouter } from "next/router"
-// import { useContext } from "react"
-// import LanguageContext from "@/context/LanguageContext"
+import { ChangeEventHandler } from "react"
+import { useRouter } from "next/router"
 
-// type selectorType = {
-//     option: String;
-//     value: String;
-// }
+import { listOfLanguages } from "../../public/locales/languages"
 
-// type textsType = {
-//     texts: Object;
-//     handleLanguage: Function;
-// }
 
-// export const LanguageSelector = () => {
-//     const router = useRouter();
-//     const {texts, handleLanguage}: textsType = useContext(LanguageContext)
+type selectorType = {
+    option: string;
+    value: string;
+}
 
-//     const optionsGenerator = listOfLanguages.map( (element:selectorType) => 
-//         <option key={`${element.option}-${element.value}`} value={element.value}>
-//             {element.option}
-//         </option>
-//     )
+type textsType = {
+    texts: object;
+    handleLanguage: ChangeEventHandler<HTMLSelectElement>;
+}
 
-//     // const handleLanguage = (e : any) => {
-//     //     router.push(router.pathname, router.pathname, {
-//     //         locale: e.target.value,
-//     //     });
-//     // };
+export const LanguageSelector = () => {
+    const router = useRouter();
 
-//   return (
-//     <>
-//         <select className="btn bg-white text-black dark:bg-dark dark:text-white flex w-fit text-sm font-normal border-none" 
-//             name="LanguageSelector"
-//             onChange={handleLanguage}
-//         >
-//             {/* this value comes from LanguageContext */}
-//             {texts.home} 
+    const optionsGenerator = listOfLanguages.map( (element:selectorType) => 
+        <option key={`${element.option}-${element.value}`} value={element.value}>
+            {element.option}
+        </option>
+    )
 
-//             {optionsGenerator}
+    const handleLanguage = (e : any) => {
+        router.push(router.pathname, router.pathname, {
+            locale: e.target.value,
+        });
+    };
 
-//         </select>
-//     </>
-//   )
-// }
+  return (
+    <>
+        <select className="btn bg-white text-black dark:bg-dark dark:text-white flex w-fit text-sm font-normal border-none" 
+            name="LanguageSelector"
+            onChange={handleLanguage}
+        >
+            {optionsGenerator}
+        </select>
+    </>
+  )
+}

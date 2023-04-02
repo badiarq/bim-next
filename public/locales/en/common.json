@@ -1,16 +1,20 @@
 {
 	"about": "About",
+	"BIMPlatform": "BIM Platform",
 	"building": "Building",
+	"buildingViewer": "Viewer - 3D Models",
 	"button": "Button",
 	"darkMode": "Dark Mode",
 	"dashboard": "Dashboard",
 	"helloWorld": "Hello World!",
 	"home": "Home",
+	"insert3DModel": "insert 3D model",
 	"lightMode": "Light Mode",
 	"login": "Login",
 	"logout": "Logout",
 	"map": "Map",
 	"more": "More",
+	"openBIMPlatform" : "OpenBIM Platform",
 	"pageNotFound": "404 Page not found",
 	"pages": "Pages",
 	"profile": "Profile",
@@ -18,5 +22,6 @@
 	"projectManagement": "Project Management",
 	"projects": "Projects",
 	"select": "Select",
-	"signUp": "Sign Up"
+	"signUp": "Sign Up",
+	"visualize3DModels": "Visualize your 3D Models here"
 }
