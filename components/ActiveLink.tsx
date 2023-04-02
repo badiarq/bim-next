@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { useRouter } from "next/router";
 import { FC } from 'react';
+import { useRouter } from "next/router";
+import Link from "next/link"
 
 interface anchorType  {
     text?: string;

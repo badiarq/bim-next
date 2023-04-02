@@ -1,4 +1,4 @@
-// import { listOfLanguages } from "../../public/locales/languages"
+// import { listOfLanguages } from "../../lang/languages"
 // import { useRouter } from "next/router"
 // import { useContext } from "react"
 // import LanguageContext from "@/context/LanguageContext"

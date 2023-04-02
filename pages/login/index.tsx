@@ -1,6 +1,7 @@
-import { useAppContext } from "@/middleware/context-provider";
-import { LoginTab } from "@/components/user/login-tab";
 import { useRouter } from 'next/navigation';
+
+import { useAppContext } from "@/middleware";
+import { LoginTab } from "@/components/user";
 
 export default function LoginPage() {
   const [state] = useAppContext();

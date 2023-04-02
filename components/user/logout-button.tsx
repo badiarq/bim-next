@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { useAppContext } from "../../middleware/context-provider";
 import { useRouter } from "next/router";
+
+import { useAppContext } from "@/middleware";
 
 export const LogOutButton: FC = () => {
 

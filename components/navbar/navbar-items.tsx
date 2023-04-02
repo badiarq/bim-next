@@ -1,4 +1,5 @@
-import t from "../public/locales/en-US"
+// import * as t from "../../public/locales/en-US"
+import t from '../../lang/en-US.json'
 
 export const navMenuItems = [
     {

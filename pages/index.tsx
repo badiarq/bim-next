@@ -1,11 +1,13 @@
-import { Inter } from 'next/font/google'
-import { useAppContext } from "../middleware/context-provider";
-import { LoginTab } from "@/components/user/login-tab";
-import Link from "next/link";
 import { useRouter } from 'next/router';
-import en from "../public/locales/EN-US.json"
-import es from "../public/locales/ES-ES.json"
-//import fr from "../public/locales/FR-FR.json"
+import Link from "next/link";
+
+import { Inter } from 'next/font/google'
+
+import { useAppContext } from "../middleware";
+import { LoginTab } from "@/components/user";
+import en from "../lang/EN-US.json"
+import es from "../lang/ES-ES.json"
+//import fr from "../lang/FR-FR.json"
 
 const inter = Inter({ subsets: ['latin'] })
 

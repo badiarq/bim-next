@@ -1,7 +1,8 @@
-import { useTheme } from "next-themes";
 import { useState, useEffect, HTMLInputTypeAttribute } from "react";
-import { ActiveLink } from "@/components/ActiveLink";
-import { navMenuItems } from "@/components/navbar-items";
+import { useTheme } from "next-themes";
+
+import { ActiveLink } from "@/components";
+import { navMenuItems } from "./navbar-items";
 //import { LanguageSelector } from "@/components/ui-elements/selector"
 
 const navMenuGenerator = navMenuItems.map(({text, href}) => 

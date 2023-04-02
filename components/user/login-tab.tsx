@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { LogoLg } from "../logo/logo-lg";
+
+import { useAppContext } from "@/middleware";
 import { PopupContainer } from "../popup-container"
 import { InformationAlert } from "../messages/information-alert";
-import { LogInButton } from "./login-button";
-import { LogOutButton } from "./logout-button";
-import { useAppContext } from "../../middleware/context-provider";
+import { LogInButton, LogOutButton } from "./";
+import { LogoLg } from "../logo/logo-lg";
 
 // export const LoginTab: FC = () => {
 export const LoginTab:FC = () => {

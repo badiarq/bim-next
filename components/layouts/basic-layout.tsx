@@ -4,7 +4,7 @@ import Head from "next/head"
 import { Navbar } from '@/components/navbar'
 
 type layoutType = {
-    title: string;
+    title?: string;
     description: string;
     keywords: string;
     children: ReactElement;
@@ -14,7 +14,7 @@ export const BasicLayout = ({title, description, keywords, children}:layoutType)
   return (
     <>
         <Head>
-            <title>{title}</title>
+            <title>{title || 'Next-BIM'}</title>
             <meta name="author" content="Badr OUAHBI" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={description} />

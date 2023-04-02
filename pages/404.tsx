@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { ActiveLink } from '@/components/ActiveLink';
-import { useRouter } from 'next/router';
+
+import { ActiveLink } from '@/components';
 
 // const { locale, locales } = useRouter();
 
