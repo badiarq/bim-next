@@ -8,8 +8,7 @@ export default function LoginPage() {
   const router = useRouter();
 
     if (state.user) {
-        router.push('/map')
-        // return <Navigate to="/map" />
+        router.push('/building-viewer')
     } else {
         return (
             <div className="login">

@@ -6,9 +6,11 @@
 	"button": "Botón",
 	"darkMode": "Modo Oscuro",
 	"dashboard": "Panel de control",
+	"fakeName": "carlos.garcía",
 	"helloWorld": "Hola Mundo!",
 	"home": "Inicio",
 	"insert3DModel": "insertar modelo 3D",
+	"language": "Idioma",
 	"lightMode": "Modo Claro",
 	"login": "Iniciar sesión",
 	"logout": "Cerrar sesión",
@@ -17,11 +19,15 @@
 	"openBIMPlatform" : "Plataforma OpenBIM",
 	"pageNotFound": "404 Página no encontrada",
 	"pages": "Páginas",
+	"password": "Contraseña",
 	"profile": "Perfil",
 	"project": "Proyecto",
 	"projectManagement": "Gestión de proyectos",
 	"projects": "Proyectos",
 	"select": "Seleccionar",
+	"signinToContinue": "Inicie sesión para continuar!",
 	"signUp": "Inscribirse",
-	"visualize3DModels": "Visualize sus modelos 3D aquí"
+	"visualize3DModels": "Visualize sus modelos 3D aquí",
+	"username": "Nombre de usuario",
+	"welcome": "Bienvenido"
 }

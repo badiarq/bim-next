@@ -18,6 +18,7 @@ type textsType = {
 export const LanguageSelector = () => {
     const router = useRouter();
     const setCurrentLanguage = useLanguageContext()[0];
+    const t = useLanguageContext()[1];
 
     const optionsGenerator = listOfLanguages.map( (element:selectorType) => 
         <option id={`${element.id}`} key={`${element.option}-${element.value}`} value={element.value}>
@@ -51,7 +52,7 @@ export const LanguageSelector = () => {
             name="LanguageSelector"
             onChange={handleLanguage}
         >
-            <option id="language-selector-title">Language</option>
+            <option id="language-selector-title">{t.language}</option>
             {optionsGenerator}
         </select>
     </>

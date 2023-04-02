@@ -6,9 +6,11 @@
 	"button": "Button",
 	"darkMode": "Dark Mode",
 	"dashboard": "Dashboard",
+	"fakeName": "john.doe",
 	"helloWorld": "Hello World!",
 	"home": "Home",
 	"insert3DModel": "insert 3D model",
+	"language": "Language",
 	"lightMode": "Light Mode",
 	"login": "Login",
 	"logout": "Logout",
@@ -17,11 +19,15 @@
 	"openBIMPlatform" : "OpenBIM Platform",
 	"pageNotFound": "404 Page not found",
 	"pages": "Pages",
+	"password": "Password",
 	"profile": "Profile",
 	"project": "Project",
 	"projectManagement": "Project Management",
 	"projects": "Projects",
 	"select": "Select",
+	"signinToContinue": "Sign in to continue!",
 	"signUp": "Sign Up",
-	"visualize3DModels": "Visualize your 3D Models here"
+	"visualize3DModels": "Visualize your 3D Models here",
+	"username": "Username",
+	"welcome": "Welcome"
 }

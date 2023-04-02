@@ -1,15 +1,16 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import { useAppContext } from "@/middleware";
 import { PopupContainer } from "../popup-container"
 import { InformationAlert } from "../messages/information-alert";
 import { LogInButton, LogOutButton } from "./";
 import { LogoLg } from "../logo/logo-lg";
+import { useLanguageContext } from "@/middleware";
 
-// export const LoginTab: FC = () => {
 export const LoginTab:FC = () => {
 
   const userState = useAppContext()[0];
+  const t = useLanguageContext()[1];
 
   return (
     <>
@@ -21,8 +22,8 @@ export const LoginTab:FC = () => {
             <p>SignUp</p>
           </div>
           <div className="welcome-container my-5">
-            <h1 className="text-3xl font-bold text-center">Welcome,</h1>
-            <h4 className="text-lg text-center text-gray-400 dark:text-middleDark">Sign in to continue!</h4>
+            <h1 className="text-3xl font-bold text-center">{t.welcome},</h1>
+            <h4 className="text-lg text-center text-gray-400 dark:text-middleDark">{t.signinToContinue}</h4>
           </div>
           <InformationAlert 
             textColor="text-primary-dark dark:text-gray-300"  
@@ -30,10 +31,10 @@ export const LoginTab:FC = () => {
           >
             <div className="font-light">
               <div>
-                  <strong>Username:</strong> john
+                  <strong>{t.username}:</strong> {t.fakeName}
               </div>
               <div>
-                  <strong>Password:</strong> @ABC123
+                  <strong>{t.password}:</strong> @ABC123
               </div>
             </div>
           </InformationAlert>

@@ -1,23 +1,19 @@
-import { GetStaticProps } from 'next'
-
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
-
 import { LogOutButton } from "@/components/user";
 import { BasicLayout } from "@/components/layouts"
+import { useLanguageContext } from '@/middleware';
 
 interface localeType {
   locale: string;
 }
 
 export default function BuildingViewer() {
-  const { t } = useTranslation('common')
+  const t = useLanguageContext()[1];
 
   return (
     <BasicLayout
-    title={`BIM-NEXT - ${t('buildingViewer')}`}
-    description={`${t('buildingViewer')} - ${t('buildingViewer')} - ${t('visualize3DModels')}`}
-    keywords={`BIM, ${t('BIMPlatform')}, ${t('insert3DModel')}, BIM GIS`}
+    title={`BIM-NEXT - ${t.buildingViewer}`}
+    description={`${t.openBIMPlatform} - ${t.buildingViewer} - ${t.visualize3DModels}`}
+    keywords={`BIM, ${t.BIMPlatform}, ${t.insert3DModel}, BIM GIS`}
     > 
       <main>
         <LogOutButton />
@@ -26,21 +22,3 @@ export default function BuildingViewer() {
     </BasicLayout>
   )
 };
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-	props: {
-		// @ts-ignore
-		...(await serverSideTranslations(locale, ['common'])),
-	},
-});
-
-//virgin
-// export const getStaticProps: GetStaticProps = async (ctx) => {
-//   const { data } = await  // your fetch function here 
-
-//   return {
-//     props: {
-      
-//     }
-//   }
-// }

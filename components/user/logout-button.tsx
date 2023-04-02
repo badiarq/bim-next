@@ -2,12 +2,14 @@ import { FC } from "react";
 import { useRouter } from "next/router";
 
 import { useAppContext } from "@/middleware";
+import { useLanguageContext } from "@/middleware";
 
 export const LogOutButton: FC = () => {
-
+  
   const state = useAppContext()[0];
   const dispatch = useAppContext()[1];
   const router = useRouter();
+  const t = useLanguageContext()[1];
 
   const onLogoutClick = () => {
     dispatch({ type: "LOGOUT" });
@@ -18,7 +20,7 @@ export const LogOutButton: FC = () => {
     return (
       <>
         <button className="btn secondary-middle" onClick={onLogoutClick}>
-          Log out
+          {t.logout}
         </button>
       </>
     );
@@ -26,7 +28,7 @@ export const LogOutButton: FC = () => {
     return (
       <>
         <button className="btn-gray-out non-clickable">
-          Log out
+          {t.logout}
         </button>
       </>
     );
