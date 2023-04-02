@@ -6,9 +6,9 @@ import { navMenuItems } from "./navbar-items";
 //import { LanguageSelector } from "@/components/ui-elements/selector"
 
 const navMenuGenerator = navMenuItems.map(({text, href}) => 
-    <div>
+    <div key={`${ text }-${ href }`}>
         <h1 className="mr-8">
-            <ActiveLink key={ href } text={ text } href={ href } />
+            <ActiveLink key={`${ text }-${ href }`} text={ text } href={ href } />
         </h1>
     </div>
 )
