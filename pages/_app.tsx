@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 
 import '../public/tw-styles.css'
 import { ContextProvider } from "@/middleware/context-provider";
-//import { LanguageProvider } from "@/context/LanguageContext";
+import { LanguageProvider } from '@/middleware';
 
 const firebaseConfig = {
   // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -36,17 +36,18 @@ const app = initializeApp(firebaseConfig);
 
 
 const App = ({ Component, pageProps }: AppProps) => {
+
   return (
     <>
        <NextUIProvider>
-        {/* <LanguageProvider> */}
+        <LanguageProvider>
           <ThemeProvider attribute="class">
-            <ContextProvider>
-              <Component {...pageProps} />
-              <ToastContainer theme="colored" />
-            </ContextProvider>
+              <ContextProvider>
+                <Component {...pageProps} />
+                <ToastContainer theme="colored" />
+              </ContextProvider>
           </ThemeProvider>
-        {/* </LanguageProvider> */}
+        </LanguageProvider>
       </NextUIProvider>
     </>
   )

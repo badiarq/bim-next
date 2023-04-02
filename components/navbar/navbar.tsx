@@ -1,9 +1,11 @@
-import { useState, useEffect, HTMLInputTypeAttribute } from "react";
+import { useState, useEffect } from "react";
+
 import { useTheme } from "next-themes";
 
 import { ActiveLink } from "@/components";
 import { navMenuItems } from "./navbar-items";
-//import { LanguageSelector } from "@/components/ui-elements/selector"
+import { LanguageSelector } from "@/components/ui-elements/selector"
+import { useLanguageContext, useLanguageSelectorContext } from "@/middleware";
 
 const navMenuGenerator = navMenuItems.map(({text, href}) => 
     <div key={`${ text }-${ href }`}>
@@ -13,25 +15,12 @@ const navMenuGenerator = navMenuItems.map(({text, href}) =>
     </div>
 )
 
-const languages = [
-    {
-        option: "English",
-        value: "en",
-    },
-    {
-        option: "Français",
-        value: "fr",
-    },
-    {
-        option: "Español",
-        value: "es",
-    },
-]
-
 export function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
-
+    const currentLanguage = useLanguageContext();
+    const changeLanguage = useLanguageSelectorContext();
+      
     useEffect(() => {
         setMounted(true);
     }, [])
@@ -45,8 +34,6 @@ export function Navbar() {
 
             return (
                 <>
-                    {/* <LanguageSelector /> */}
-
                     <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("light")}
                     >
@@ -59,8 +46,6 @@ export function Navbar() {
         } else {
             return (
                 <>
-                    {/* <LanguageSelector /> */}
-
                     <button className="btn bg-[#023047] text-white flex w-fit text-sm font-normal"
                         onClick={() => setTheme("dark")}
                     >
@@ -73,19 +58,21 @@ export function Navbar() {
         }
     }
 
-    
     return (
         <div className="navbar h-10">
             <nav className="flex flex-row justify-around bg-primary-middle text-white dark:bg-lightyellow dark:text-primary-dark h-10 items-center">
                 <div className="nav-titles flex">
-
                     {navMenuGenerator}
-
                 </div>
+                <div>
+                    <LanguageSelector />
+                </div>
+                <h1>{currentLanguage}</h1>
+                <button onClick={changeLanguage}>Cambia el Idioma</button>
                 <div className="flex">
                     {renderThemeChanger()}
                 </div>
             </nav>
         </div>
-    )
-}
+    );
+};
