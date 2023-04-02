@@ -1,39 +1,39 @@
 import { createContext, useState, useContext } from "react";
 import { useRouter } from "next/router";
+import en from '../public/locales/en/common.json'
+import es from '../public/locales/es/common.json'
+import fr from '../public/locales/fr/common.json'
 
 const languageContext = createContext()
-const languageSelectorContext = createContext();
+// const languageSelectorContext = createContext();
 
 export function useLanguageContext() {
   return useContext(languageContext);
 }
 
-export function useLanguageSelectorContext() {
-  return useContext(languageSelectorContext);
-}
+// export function useLanguageSelectorContext() {
+//   return useContext(languageSelectorContext);
+// }
 
-export function LanguageProvider(props) {
+export function LanguageProvider({children}) {
 
   const router = useRouter();
-  const currentLanguage = router.locale;
-  const [language, setLanguage] = useState(currentLanguage);
-  console.log(language);
+  const [translation, setTranslation] = useState(en);
 
-  const setCurrentLanguage = () => {
-    console.log(router.locale)
-    if(language === null || language === undefined) {
-      setLanguage(router.defaultLocale);
-    } else if (language === 'en') {
+  function setCurrentLanguage () {
+    const locale = router.locale;
+    if (locale === 'fr') {
+      setTranslation(fr);
+    } else if (locale === 'es') {
+      setTranslation(es);
     } else {
-      setLanguage(router.locale)
+      setTranslation(en)
     }
   }
 
   return (
-    <languageContext.Provider value={language}>
-      <languageSelectorContext.Provider value={setCurrentLanguage}>
-        {props.children}
-      </languageSelectorContext.Provider>
+    <languageContext.Provider value={[setCurrentLanguage, translation]}>
+        {children}
     </languageContext.Provider>
   );
 }

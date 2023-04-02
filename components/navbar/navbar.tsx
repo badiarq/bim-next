@@ -1,25 +1,36 @@
 import { useState, useEffect } from "react";
-
 import { useTheme } from "next-themes";
 
 import { ActiveLink } from "@/components";
-import { navMenuItems } from "./navbar-items";
 import { LanguageSelector } from "@/components/ui-elements/selector"
-import { useLanguageContext, useLanguageSelectorContext } from "@/middleware";
+import { useLanguageContext } from "@/middleware";
 
-const navMenuGenerator = navMenuItems.map(({text, href}) => 
+export function Navbar() {
+    const { systemTheme, theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    const currentData = useLanguageContext()[1];
+
+    const navMenuItems = [
+        {   text: currentData.home,
+            href: "/"},
+        {   text: currentData.login,
+            href: "/login"},
+        {   text: currentData.building,
+            href: "/building-viewer"},
+        {   text: currentData.map,
+            href: "/map"},
+        {   text: currentData.about,
+            href: "/about"}
+    ]
+
+    const navMenuGenerator = navMenuItems.map(({text, href}) => 
     <div key={`${ text }-${ href }`}>
         <h1 className="mr-8">
             <ActiveLink key={`${ text }-${ href }`} text={ text } href={ href } />
         </h1>
     </div>
-)
-
-export function Navbar() {
-    const { systemTheme, theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-    const currentLanguage = useLanguageContext();
-    const changeLanguage = useLanguageSelectorContext();
+    )
       
     useEffect(() => {
         setMounted(true);
@@ -67,8 +78,6 @@ export function Navbar() {
                 <div>
                     <LanguageSelector />
                 </div>
-                <h1>{currentLanguage}</h1>
-                <button onClick={changeLanguage}>Cambia el Idioma</button>
                 <div className="flex">
                     {renderThemeChanger()}
                 </div>

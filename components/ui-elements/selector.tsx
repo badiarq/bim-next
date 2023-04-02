@@ -2,6 +2,7 @@ import { ChangeEventHandler } from "react"
 import { useRouter } from "next/router"
 
 import { listOfLanguages } from "../../public/locales/languages"
+import { useLanguageContext } from "@/middleware";
 
 type selectorType = {
     option: string;
@@ -16,6 +17,7 @@ type textsType = {
 
 export const LanguageSelector = () => {
     const router = useRouter();
+    const setCurrentLanguage = useLanguageContext()[0];
 
     const optionsGenerator = listOfLanguages.map( (element:selectorType) => 
         <option id={`${element.id}`} key={`${element.option}-${element.value}`} value={element.value}>
@@ -39,6 +41,8 @@ export const LanguageSelector = () => {
             option.selected = false;
           }
         }
+
+        setCurrentLanguage()
     };
 
   return (

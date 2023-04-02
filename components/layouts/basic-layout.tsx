@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import Head from "next/head"
 
 import { Navbar } from '@/components/navbar'
+import { useLanguageContext } from '@/middleware/LanguageProvider'
 
 type layoutType = {
     title?: string;
@@ -11,6 +12,10 @@ type layoutType = {
 }
 
 export const BasicLayout = ({title, description, keywords, children}:layoutType) => {
+
+  const setCurrentLanguage = useLanguageContext()[0];
+  setCurrentLanguage();
+
   return (
     <>
         <Head>
