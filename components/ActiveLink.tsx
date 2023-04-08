@@ -1,11 +1,7 @@
 import { FC } from 'react';
 import { useRouter } from "next/router";
-import Link from "next/link"
-
-interface anchorType  {
-    text?: string;
-    href: string;
-}
+import Link from "next/link";
+import { anchorType } from '@/interfaces';
 
 export const ActiveLink: FC<anchorType> = ({text, href}) => {
 
