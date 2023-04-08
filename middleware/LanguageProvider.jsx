@@ -1,19 +1,15 @@
 import { createContext, useState, useContext } from "react";
 import { useRouter } from "next/router";
+
 import en from '../public/locales/en/common.json'
 import es from '../public/locales/es/common.json'
 import fr from '../public/locales/fr/common.json'
 
 const languageContext = createContext()
-// const languageSelectorContext = createContext();
 
 export function useLanguageContext() {
   return useContext(languageContext);
 }
-
-// export function useLanguageSelectorContext() {
-//   return useContext(languageSelectorContext);
-// }
 
 export function LanguageProvider({children}) {
 

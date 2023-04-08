@@ -1,5 +1,6 @@
 {
 	"about": "Sobre nosotros",
+	"appName": "BIMEA",
 	"BIMPlatform": "Plataforma BIM",
 	"building": "Edificio",
 	"buildingViewer": "Visor - Modelos 3D",
@@ -29,5 +30,6 @@
 	"signUp": "Inscribirse",
 	"visualize3DModels": "Visualize sus modelos 3D aquí",
 	"username": "Nombre de usuario",
-	"welcome": "Bienvenido"
+	"welcome": "Bienvenido",
+	"welcomeTo": "Bienvenido a"
 }

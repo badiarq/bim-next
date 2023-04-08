@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 
 import { useAppContext } from "@/middleware";
 import { PopupContainer } from "../popup-container"

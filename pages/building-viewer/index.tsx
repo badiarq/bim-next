@@ -1,17 +1,14 @@
 import { LogOutButton } from "@/components/user";
 import { BasicLayout } from "@/components/layouts"
 import { useLanguageContext } from '@/middleware';
-
-interface localeType {
-  locale: string;
-}
+import { Dictionary } from '@/interfaces'
 
 export default function BuildingViewer() {
-  const t = useLanguageContext()[1];
+  const t:Dictionary = useLanguageContext()[1];
 
   return (
     <BasicLayout
-    title={`BIM-NEXT - ${t.buildingViewer}`}
+    title={`${t.appName} - ${t.buildingViewer}`}
     description={`${t.openBIMPlatform} - ${t.buildingViewer} - ${t.visualize3DModels}`}
     keywords={`BIM, ${t.BIMPlatform}, ${t.insert3DModel}, BIM GIS`}
     > 
