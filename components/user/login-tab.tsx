@@ -31,10 +31,10 @@ export const LoginTab:FC = () => {
           >
             <div className="font-light">
               <div>
-                  <strong>{t.username}:</strong> {t.fakeName}
+                  <strong className="font-bold">{t.username}:</strong> {t.fakeName}
               </div>
               <div>
-                  <strong>{t.password}:</strong> @ABC123
+                  <strong className="font-bold">{t.password}:</strong> @ABC123
               </div>
             </div>
           </InformationAlert>
