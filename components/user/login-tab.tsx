@@ -46,9 +46,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
       setUser(user);  
     } catch  (e:any) {
       if(e.code == "auth/email-already-in-use") {
-        toast.error(
-          `${t.notifyAlreadyExists}`,
-          { autoClose: 15000 })
+        toast.error(`${t.notifyAlreadyExists}`, { autoClose: 15000 })
       } else if (e.code == "auth/invalid-email") {
         toast.error(`${t.notifyInvalidEmail}`)
       } else if (e.code == "auth/operation-not-allowed") {
@@ -62,8 +60,22 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
   const handleEmailLogin = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     ev.stopPropagation();
-
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch  (e:any) {
+      console.log(e.message);
+      if(e.code == "auth/invalid-email") {
+        toast.error(`${t.notifyInvalidEmail}`)
+      } else if (e.code == "auth/user-disabled") {
+        toast.error(`${t.notifyUserDisabled}`)
+      } else if (e.code == "auth/user-not-found") {
+        toast.error(`${t.notifyUserNotFound}`)
+      } else if (e.code == "auth/wrong-password") {
+        toast.error(`${t.notifyWrongPassword}`)
+      } else if (e.code == "auth/too-many-requests") {
+        toast.error(`${t.notifyTooManyRequests}`, { autoClose: 15000 })
+      }
+    }
   }
 
   useEffect(() => {
