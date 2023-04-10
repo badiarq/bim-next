@@ -14,7 +14,7 @@ export const Authenticator: FC = () => {
   const router = useRouter();
   
   const notifyLogin = (userName : String | null) => {
-    toast.success(`${userName}, welcome to Next-BIM !`)
+    toast.success(`${userName}, welcome !`)
   }
 
   const listenToAuthChanges = () => {

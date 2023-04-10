@@ -1,16 +1,19 @@
 import { FC } from "react";
 
+import { Grid } from "@nextui-org/react";
+
 import { useAppContext } from "@/middleware";
 import { PopupContainer } from "../popup-container"
 import { InformationAlert } from "../messages/information-alert";
-import { LogInButton, LogOutButton } from "./";
+import { LogInButton } from "./";
 import { LogoLg } from "../logo/logo-lg";
 import { useLanguageContext } from "@/middleware";
+import { Dictionary } from "@/interfaces";
 
 export const LoginTab:FC = () => {
 
   const userState = useAppContext()[0];
-  const t = useLanguageContext()[1];
+  const t:Dictionary = useLanguageContext()[1];
 
   return (
     <>
@@ -30,15 +33,31 @@ export const LoginTab:FC = () => {
             backgroundColor="bg-primary-light15 dark:bg-gray-700"
           >
             <div className="font-light">
-              <div>
-                  <strong className="font-bold">{t.username}:</strong> {t.fakeName}
-              </div>
-              <div>
-                  <strong className="font-bold">{t.password}:</strong> @ABC123
-              </div>
+              <div><strong className="font-bold">{t.username}:</strong> {t.fakeName}</div>
+              <div><strong className="font-bold">{t.password}:</strong> @ABC123</div>
             </div>
           </InformationAlert>
-          {userState.user ? (<p>{userState.user.displayName}</p>) : (<LogOutButton />)}
+          <Grid.Container className="flex flex-col mb-2">
+            <Grid className="mb-2">
+            <label htmlFor="loginUsername" className="form-label">{t.yourEmailOrUsername}</label>
+              <input
+                id="loginUsername"
+                className="form-control text-gray-300"
+                placeholder={t.fakeName}
+                type="text"
+              />
+            </Grid>
+            <Grid className="mb-2">
+            <label htmlFor="loginPassword" className="form-label">{t.password}</label>
+              <input
+                id="loginPassword"
+                className="form-control text-gray-300"
+                placeholder="*******"
+                type="password"
+              />
+            </Grid>
+          </Grid.Container>
+          <LogInButton />
         </div>
       </PopupContainer>
     </>
