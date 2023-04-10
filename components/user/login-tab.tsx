@@ -43,7 +43,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
       const response = await createUserWithEmailAndPassword(auth, email, password);
       const newUser = response.user;
       await updateProfile(newUser, {displayName: name});
-      setUser(user);
+      setUser(user);  
     } catch  (e:any) {
       if(e.code == "auth/email-already-in-use") {
         toast.error(
@@ -173,7 +173,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
             </button>
           </form>
 
-          <form id="login-form" onSubmit={handleLogin}>
+          <form id="login-form" onSubmit={handleEmailLogin}>
             <Grid.Container className="flex flex-col mb-2">
               <Grid className="mb-2">
               <label htmlFor="loginUsername" className="form-label text-base">{t.email}</label>

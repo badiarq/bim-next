@@ -3744,6 +3744,11 @@ input:checked + .toggle-bg{
   border-color: rgb(4 116 129 / var(--tw-border-opacity));
 }
 
+.border-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(31 33 40 / var(--tw-border-opacity));
+}
+
 .\!bg-transparent{
   background-color: transparent !important;
 }
