@@ -45,7 +45,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUp }) => {
         </Head>
         <div className="card-body flex-auto">
           <LogoLg/>
-          <div className="bg-gray-200 dark:bg-middleDark dark:text-white my-5 p-3 rounded-xl grid grid-cols-2 gap-3">
+          <div className="bg-gray-200 dark:bg-middleDark dark:text-white mt-4 p-2 rounded-xl grid grid-cols-2 gap-3">
             <LogInButton />
             <button 
             className="btn"
@@ -53,8 +53,8 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUp }) => {
             {t.signUp}
             </button>
           </div>
-          <div className="welcome-container my-5">
-            <h1 className="text-3xl font-bold text-center dark:text-white">{t.welcome},</h1>
+          <div className="welcome-container my-3">
+            <h1 className="h-8 text-3xl font-bold text-center dark:text-white">{t.welcome},</h1>
             <h4 className="text-lg text-center text-gray-400">{t.signinToContinue}</h4>
           </div>
           <InformationAlert 
@@ -77,7 +77,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUp }) => {
                 />
               </Grid>
             <Grid className="mb-2">
-            <label htmlFor="loginUsername" className="form-label">{t.yourEmailOrUsername}</label>
+            <label htmlFor="loginUsername" className="form-label text-base">{t.yourEmailOrUsername}</label>
               <input
                 id="loginUsername"
                 className="form-control text-gray-300"
@@ -86,7 +86,7 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUp }) => {
               />
             </Grid>
             <Grid className="mb-2">
-            <label htmlFor="loginPassword" className="form-label">{t.password}</label>
+            <label htmlFor="loginPassword" className="form-label text-base">{t.password}</label>
               <input
                 id="loginPassword"
                 className="form-control text-gray-300"
@@ -95,9 +95,11 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUp }) => {
               />
             </Grid>
           </Grid.Container>
-          <LogInButton />
+          <div className="flex justify-center">
+            <LogInButton />
+          </div>
 
-          <div className='text-center flex flex-row justify-around mt-6'>
+          <div className='text-center flex flex-row justify-around mt-4'>
 							<Link
 								href='/'
 								className={classNames('text-decoration-none me-3', 'dark:text-gray-200', 'text-sm', {

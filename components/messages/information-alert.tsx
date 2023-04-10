@@ -9,7 +9,7 @@ interface infoAlert {
 export const InformationAlert: FC<infoAlert> = ({children, textColor, backgroundColor}) => {
 
     return (
-      <div className="login-data-instructions my-5">
+      <div className="login-data-instructions my-3">
         <div className={`instructions-container ${textColor} border-gray-300 dark:border-gray-600 ${backgroundColor}`}>
           <div className="left-icon">
               <svg className="left-icon" viewBox="0 0 24 24" fill="currentColor"
