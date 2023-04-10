@@ -21,6 +21,10 @@ export interface Dictionary {
     logout:              string;
     map:                 string;
     more:                string;
+    notifyAlreadyExists: string;
+    notifyInvalidEmail:  string;
+    notifyOperationNotAllowed: string;
+    notifyWeakPassword:  string;
     openBIMPlatform:     string;
     pageNotFound:        string;
     pages:               string;

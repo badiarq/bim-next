@@ -1,21 +1,23 @@
-import { FC, useState, useEffect, ReactNode } from "react";
+import { FC, useState, useEffect, FormEvent } from "react";
 
 import { Grid } from "@nextui-org/react";
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Link from "next/link";
 import classNames from "classnames";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 import { useAppContext } from "@/middleware";
+import { GoogleLogin } from "@/components/user";
 import { PopupContainer } from "../popup-container"
 import { InformationAlert } from "../messages/information-alert";
-import { GoogleLogin } from "@/components/user";
 import { LogoLg } from "../logo/logo-lg";
 import { useLanguageContext } from "@/middleware";
 import { Dictionary } from "@/interfaces";
 
 interface ILoginProps {
-	isSignUpClicked?: boolean;
+  isSignUpClicked?: boolean;
 }
 
 const handleOnClick = () => {
@@ -23,28 +25,63 @@ const handleOnClick = () => {
 }
 
 export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
-
   const userState = useAppContext()[0];
   const t:Dictionary = useLanguageContext()[1];
-
   const [singUpClickedStatus, setSingUpClickedStatus] = useState<boolean>(!!isSignUpClicked);
 
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const auth = getAuth();
+  const [user, setUser] = useState('');
+
+  const handleSignup = async (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    try {
+      const response = await createUserWithEmailAndPassword(auth, email, password);
+      const newUser = response.user;
+      await updateProfile(newUser, {displayName: name});
+      setUser(user);
+    } catch  (e:any) {
+      if(e.code == "auth/email-already-in-use") {
+        toast.error(
+          `${t.notifyAlreadyExists}`,
+          { autoClose: 15000 })
+      } else if (e.code == "auth/invalid-email") {
+        toast.error(`${t.notifyInvalidEmail}`)
+      } else if (e.code == "auth/operation-not-allowed") {
+        toast.error(`${t.notifyOperationNotAllowed}`)
+      } else if (e.code == "auth/weak-password") {
+        toast.error(`${t.notifyWeakPassword}`)
+      }
+    }
+  }
+
+  const handleEmailLogin = async (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    await signInWithEmailAndPassword(auth, email, password);
+  }
+
   useEffect(() => {
+    const loginForm:HTMLElement | null = document.getElementById('login-form')
+    const signupForm:HTMLElement | null = document.getElementById('signup-form')
     const loginButton:HTMLElement | null = document.getElementById('loginButtonTab')
     const signupButton:HTMLElement | null = document.getElementById('signupButtonTab')
-    const nameInputContainer:HTMLElement | null = document.getElementById('nameInputContainer')
-    const emailLoginButton:HTMLElement | null = document.getElementById('emailLoginButton');
 
     if(singUpClickedStatus) {
-      emailLoginButton!.textContent = t.signUp;
+      signupForm!.style.display = 'block';
+      loginForm!.style.display = 'none';
       signupButton!.classList.add("bg-primary-middle", "dark:bg-secondary-light", "dark:text-dark", "shadow-inner");
       loginButton!.classList.remove("bg-primary-middle", "dark:bg-secondary-light", "dark:text-dark", "shadow-inner");
-      nameInputContainer!.style.display = 'block';
     } else {
-      emailLoginButton!.textContent = t.login;
+      signupForm!.style.display = 'none';
+      loginForm!.style.display = 'block';
       signupButton!.classList.remove("bg-primary-middle", "dark:bg-secondary-light", "dark:text-dark", "shadow-inner");
       loginButton!.classList.add("bg-primary-middle", "dark:bg-secondary-light", "dark:text-dark", "shadow-inner");
-      nameInputContainer!.style.display = 'none';
     }
   }, [singUpClickedStatus]);
     
@@ -91,24 +128,60 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
               <div><strong className="font-bold">{t.password}:</strong> @ABC123</div>
             </div>
           </InformationAlert>
-          <form>
+          <form id="signup-form" onSubmit={handleSignup}>
             <Grid.Container className="flex flex-col mb-2">
-              <Grid id="nameInputContainer" className="mb-2 hidden">
-                <label htmlFor="name" className="form-label">{t.fullName}</label>
-                  <input
-                    id="nameInput"
-                    className="form-control text-gray-300"
-                    placeholder={t.fakeName}
-                    type="text"
-                    required
-                  />
-                </Grid>
+              <Grid className="mb-2">
+                <label htmlFor="nameInput" className="form-label text-base">{t.fullName}</label>
+                <input
+                  id="nameInput"
+                  className="form-control text-gray-300"
+                  placeholder={t.fakeName}
+                  onChange={(event) => setName(event.target.value)}
+                  type="text"
+                  required
+                />
+              </Grid>
+              <Grid className="mb-2">
+              <label htmlFor="signupUsername" className="form-label text-base">{t.email}</label>
+                <input
+                  id="signupUsername"
+                  className="form-control text-gray-300"
+                  placeholder={t.fakeEmail}
+                  onChange={(event) => setEmail(event.target.value)}
+                  type="email"
+                  required
+                />
+              </Grid>
+              <Grid className="mb-2">
+              <label htmlFor="signupPassword" className="form-label text-base">{t.password}</label>
+                <input
+                  id="lsignupPassword"
+                  className="form-control text-gray-300"
+                  placeholder="*******"
+                  onChange={(event) => setPassword(event.target.value)}
+                  type="password"
+                  required
+                />
+              </Grid>
+            </Grid.Container>
+            <button
+              id="signupButton" 
+                type="submit" 
+                className="btn primary-dark dark:primary-light dark:text-dark text-center flex flex-row justify-around items-center mt-2 ml-0 mb-6 h-10 w-full"
+              >
+              {t.signUp}
+            </button>
+          </form>
+
+          <form id="login-form" onSubmit={handleLogin}>
+            <Grid.Container className="flex flex-col mb-2">
               <Grid className="mb-2">
               <label htmlFor="loginUsername" className="form-label text-base">{t.email}</label>
                 <input
                   id="loginUsername"
                   className="form-control text-gray-300"
                   placeholder={t.fakeEmail}
+                  onChange={(event) => setEmail(event.target.value)}
                   type="email"
                   required
                 />
@@ -119,38 +192,41 @@ export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
                   id="loginPassword"
                   className="form-control text-gray-300"
                   placeholder="*******"
+                  onChange={(event) => setPassword(event.target.value)}
                   type="password"
                   required
                 />
               </Grid>
             </Grid.Container>
-
-            <button id="emailLoginButton" type="submit" className="btn primary-dark dark:primary-light dark:text-dark text-center flex flex-row justify-around items-center mt-2 ml-0 mb-6 h-10 w-full">
+            <button
+              id="emailLoginButton" 
+                type="submit" 
+                className="btn primary-dark dark:primary-light dark:text-dark text-center flex flex-row justify-around items-center mt-2 ml-0 mb-6 h-10 w-full"
+              >
+              {t.login}
             </button>
-
           </form>
 
           <GoogleLogin />
 
           <div className='text-center flex flex-row justify-around mt-4'>
-							<Link
-								href='/'
-								className={classNames('text-decoration-none me-3', 'dark:text-gray-200', 'text-sm', 'mr-6', {
-									'link-light': singUpClickedStatus,
-									'link-dark': !singUpClickedStatus,
-								})}>
-								{t.privacyPolicy}
-							</Link>
-							<Link
-								href='/'
-								className={classNames('link-light text-decoration-none', 'dark:text-gray-200', 'text-sm', {
-									'link-light': singUpClickedStatus,
-									'link-dark': !singUpClickedStatus,
-								})}>
-								{t.termsOfUse}
-							</Link>
-						</div>
-
+            <Link
+              href='/'
+              className={classNames('text-decoration-none me-3', 'dark:text-gray-200', 'text-sm', 'mr-6', {
+                'link-light': singUpClickedStatus,
+                'link-dark': !singUpClickedStatus,
+              })}>
+              {t.privacyPolicy}
+            </Link>
+            <Link
+              href='/'
+              className={classNames('link-light text-decoration-none', 'dark:text-gray-200', 'text-sm', {
+                'link-light': singUpClickedStatus,
+                'link-dark': !singUpClickedStatus,
+              })}>
+              {t.termsOfUse}
+            </Link>
+          </div>
         </div>
       </PopupContainer>
     </>
