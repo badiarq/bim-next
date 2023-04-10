@@ -18,6 +18,7 @@
 	"language": "Langue",
 	"lightMode": "Mode clair",
 	"login": "Connexion",
+	"loginWithGoogle": "Utiliser Google pour se connecter",
 	"logout": "Déconnexion",
 	"map": "Carte",
 	"more": "Suite",

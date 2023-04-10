@@ -17,6 +17,7 @@ export interface Dictionary {
     language:            string;
     lightMode:           string;
     login:               string;
+    loginWithGoogle:     string;
     logout:              string;
     map:                 string;
     more:                string;
