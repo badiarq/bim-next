@@ -1471,18 +1471,6 @@ input:checked + .toggle-bg{
   background-color: rgb(2 48 71 / var(--tw-bg-opacity));
 }
 
-.secondary-dark{
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 133 0 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(31 33 40 / var(--tw-text-opacity));
-}
-
-.secondary-dark:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 216 164 / var(--tw-bg-opacity));
-}
-
 .secondary-middle{
   --tw-bg-opacity: 1;
   background-color: rgb(255 183 3 / var(--tw-bg-opacity));
@@ -5208,11 +5196,6 @@ input:checked + .toggle-bg{
   color: rgb(101 163 13 / var(--tw-text-opacity));
 }
 
-.text-middleDark{
-  --tw-text-opacity: 1;
-  color: rgb(83 87 106 / var(--tw-text-opacity));
-}
-
 .text-pink-600{
   --tw-text-opacity: 1;
   color: rgb(214 31 105 / var(--tw-text-opacity));
@@ -5863,8 +5846,8 @@ body, html, #app, .App, .home {
   border-radius: 1rem;
   box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
   display: block;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.5;
   padding: 0.5rem 1rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -5877,6 +5860,11 @@ body, html, #app, .App, .home {
   background-color: #f8f9fa;
   box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 0 0 0 0.25rem rgba(108,93,211,.25);
   outline: 0;
+}
+
+.dark .form-label{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .dark .dark\:secondary-light{
@@ -7029,6 +7017,16 @@ body, html, #app, .App, .home {
   background-color: rgb(99 49 18 / var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-primary-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(142 202 230 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-opacity-80{
   --tw-bg-opacity: 0.8;
 }
@@ -7165,11 +7163,6 @@ body, html, #app, .App, .home {
 .dark .dark\:text-lime-900{
   --tw-text-opacity: 1;
   color: rgb(54 83 20 / var(--tw-text-opacity));
-}
-
-.dark .dark\:text-middleDark{
-  --tw-text-opacity: 1;
-  color: rgb(83 87 106 / var(--tw-text-opacity));
 }
 
 .dark .dark\:text-pink-600{

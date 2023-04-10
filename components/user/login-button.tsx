@@ -13,7 +13,7 @@ export const LogInButton: FC = () => {
 
   return (
     <>
-      <button className="btn primary-dark dark:secondary-light" onClick={onLoginClick}>{t.login}</button>
+      <button id="loginButton" className="btn primary-dark dark:secondary-light" onClick={onLoginClick}>{t.login}</button>
     </>
   )
 };

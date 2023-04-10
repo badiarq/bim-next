@@ -4,6 +4,7 @@ export interface Dictionary {
     BIMPlatform:         string;
     building:            string;
     buildingViewer:      string;
+    "button Group":      string;
     button:              string;
     darkMode:            string;
     dashboard:           string;
@@ -21,13 +22,14 @@ export interface Dictionary {
     pageNotFound:        string;
     pages:               string;
     password:            string;
-    profile:             string;
+    privacyPolicy:       string;
     project:             string;
     projectManagement:   string;
     projects:            string;
     select:              string;
     signinToContinue:    string;
     signUp:              string;
+    termsOfUse:          string;
     visualize3DModels:   string;
     username:            string;
     welcome:             string;
