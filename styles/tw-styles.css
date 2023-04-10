@@ -47,6 +47,10 @@ body, html, #app, .App, .home {
         @apply rounded-xl py-1 px-3 mx-3 font-bold cursor-pointer shadow-md hover:-translate-y-0.5 transform transition duration-300
     }
 
+    .btn-transparent {
+        @apply rounded-xl py-1 px-3 mx-3 font-bold cursor-pointer hover:-translate-y-0.5 transform transition duration-300
+    }
+
     .btn-gray-out {
         @apply bg-gray-300 text-white dark:bg-gray-700 dark:text-gray-400 rounded-xl py-1 px-3 font-bold cursor-not-allowed shadow-md;
     }

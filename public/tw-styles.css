@@ -1418,6 +1418,29 @@ input:checked + .toggle-bg{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.btn-transparent{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  cursor: pointer;
+  border-radius: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 700;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.btn-transparent:hover{
+  --tw-translate-y: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .btn-gray-out{
   cursor: not-allowed;
   border-radius: 0.75rem;
@@ -1469,6 +1492,18 @@ input:checked + .toggle-bg{
 .primary-middle:active{
   --tw-bg-opacity: 1;
   background-color: rgb(2 48 71 / var(--tw-bg-opacity));
+}
+
+.secondary-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 133 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(31 33 40 / var(--tw-text-opacity));
+}
+
+.secondary-dark:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 216 164 / var(--tw-bg-opacity));
 }
 
 .secondary-middle{
@@ -2170,11 +2205,6 @@ input:checked + .toggle-bg{
 
 .h-px{
   height: 1px;
-}
-
-.h-max{
-  height: -moz-max-content;
-  height: max-content;
 }
 
 .h-screen{
@@ -4677,10 +4707,6 @@ input:checked + .toggle-bg{
   padding-top: 1rem;
 }
 
-.pt-8{
-  padding-top: 2rem;
-}
-
 .pr-8{
   padding-right: 2rem;
 }
@@ -5226,6 +5252,11 @@ input:checked + .toggle-bg{
 .text-yellow-600{
   --tw-text-opacity: 1;
   color: rgb(159 88 10 / var(--tw-text-opacity));
+}
+
+.text-dark{
+  --tw-text-opacity: 1;
+  color: rgb(31 33 40 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -5867,6 +5898,47 @@ body, html, #app, .App, .home {
 .dark .form-label{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:primary-dark:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 48 71 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:primary-dark:hover:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(142 202 230 / var(--tw-bg-opacity));
+}
+
+.hover\:secondary-dark:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 133 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(31 33 40 / var(--tw-text-opacity));
+}
+
+.hover\:secondary-dark:hover:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 216 164 / var(--tw-bg-opacity));
+}
+
+.hover\:secondary-middle:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 183 3 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(31 33 40 / var(--tw-text-opacity));
+}
+
+.hover\:secondary-middle:hover:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 216 164 / var(--tw-bg-opacity));
+}
+
+.hover\:secondary-middle:hover:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 133 0 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:secondary-light{
@@ -7019,6 +7091,11 @@ body, html, #app, .App, .home {
   background-color: rgb(99 49 18 / var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-opacity-80{
   --tw-bg-opacity: 0.8;
 }
@@ -7255,6 +7332,11 @@ body, html, #app, .App, .home {
 .dark .dark\:text-yellow-900{
   --tw-text-opacity: 1;
   color: rgb(99 49 18 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-dark{
+  --tw-text-opacity: 1;
+  color: rgb(31 33 40 / var(--tw-text-opacity));
 }
 
 .dark .dark\:placeholder-gray-400::-moz-placeholder{

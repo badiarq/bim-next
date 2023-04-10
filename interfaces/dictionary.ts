@@ -4,11 +4,13 @@ export interface Dictionary {
     BIMPlatform:         string;
     building:            string;
     buildingViewer:      string;
-    "button Group":      string;
     button:              string;
     darkMode:            string;
     dashboard:           string;
+    email:               string;
+    fakeEmail:           string;
     fakeName:            string;
+    fullName:            string;
     helloWorld:          string;
     home:                string;
     insert3DModel:       string;
@@ -23,6 +25,7 @@ export interface Dictionary {
     pages:               string;
     password:            string;
     privacyPolicy:       string;
+    profile:             string;
     project:             string;
     projectManagement:   string;
     projects:            string;
