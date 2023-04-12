@@ -76,11 +76,11 @@ export function Navbar() {
                 <div className="nav-titles flex">
                     {navMenuGenerator}
                 </div>
-                <div>
-                    <LanguageSelector />
-                </div>
                 <div className="flex">
+                    <LanguageSelector />
                     {renderThemeChanger()}
+                </div>
+                <div >
                     <LogOutButton />
                 </div>
             </nav>
