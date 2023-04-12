@@ -5,7 +5,7 @@ import { Navbar } from '@/components/navbar'
 import { useLanguageContext } from "@/middleware";
 import { BasicLayoutType, Dictionary } from "@/interfaces";
 
-export const BasicLayout:FC<BasicLayoutType> = ({title, description, keywords, children}) => {
+export const MapLayout:FC<BasicLayoutType> = ({title, description, keywords, children}) => {
 
   const setCurrentLanguage = useLanguageContext()[0]
   const t:Dictionary = useLanguageContext()[1];
@@ -19,15 +19,13 @@ export const BasicLayout:FC<BasicLayoutType> = ({title, description, keywords, c
             <meta name="author" content="Badr OUAHBI" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={description} />
-            <meta name="keywords" content={keywords} />
+            <meta name="keywords" content={`Map, ${keywords}`} />
         </Head>
       
       <main className="main">
         <Navbar />
         <div className="description">
-
             {children}
-
         </div>
       </main>
     </>
