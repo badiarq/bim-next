@@ -13,21 +13,13 @@ import { ContextProvider } from "@/middleware/context-provider";
 import { LanguageProvider } from '@/middleware';
 
 const firebaseConfig = {
-  // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  // authDomain: process.env.REACT_APP_FIREBASE_API_AUTH_DOMAIN,
-  // projectId: process.env.REACT_APP_FIREBASE_API_PROJECT_ID,
-  // storageBucket: process.env.REACT_APP_FIREBASE_API_STORAGE_BUCKET,
-  // messagingSenderId: process.env.REACT_APP_FIREBASE_API_MESSAGING_SENDER_ID,
-  // appId: process.env.REACT_APP_FIREBASE_API_APP_ID,
-  // measurementId: process.env.REACT_APP_FIREBASE_API_MEASUREMENT_ID
-
-  apiKey: "AIzaSyCPIKUO2ZmtwLLs12kvZV8UId0ypN4DFN4",
-  authDomain: "next-bim.firebaseapp.com",
-  projectId: "next-bim",
-  storageBucket: "next-bim.appspot.com",
-  messagingSenderId: "685120385713",
-  appId: "1:685120385713:web:f6a8e24795dc36e9b5e890",
-  measurementId: "G-3WXXKJV2JQ"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_API_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_API_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_API_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_API_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_API_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_API_MEASUREMENT_ID
 };
 
 // Initialize Firebase
