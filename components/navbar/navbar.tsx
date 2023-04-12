@@ -12,8 +12,8 @@ export function Navbar() {
     const t = useLanguageContext()[1];
 
     const navMenuItems = [
-        {   text: t.home,
-            href: "/"},
+        // {   text: t.home,
+        //     href: "/"},
         {   text: t.login,
             href: "/login"},
         {   text: t.building,
