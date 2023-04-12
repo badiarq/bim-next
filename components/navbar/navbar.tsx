@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { ActiveLink } from "@/components";
 import { LanguageSelector } from "@/components/ui-elements"
 import { useLanguageContext } from "@/middleware";
+import { LogOutButton } from "../user";
 
 export function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -45,7 +46,7 @@ export function Navbar() {
 
             return (
                 <>
-                    <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal"
+                    <button className="btn bg-[#ffb703] text-white flex w-fit text-sm font-normal items-center"
                         onClick={() => setTheme("light")}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 mr-2">
@@ -57,7 +58,7 @@ export function Navbar() {
         } else {
             return (
                 <>
-                    <button className="btn bg-[#023047] text-white flex w-fit text-sm font-normal"
+                    <button className="btn bg-[#023047] text-white flex w-fit text-sm font-normal items-center"
                         onClick={() => setTheme("dark")}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 mr-2">
@@ -80,6 +81,7 @@ export function Navbar() {
                 </div>
                 <div className="flex">
                     {renderThemeChanger()}
+                    <LogOutButton />
                 </div>
             </nav>
         </div>

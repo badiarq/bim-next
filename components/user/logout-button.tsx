@@ -19,7 +19,7 @@ export const LogOutButton: FC = () => {
   if(state.user) {
     return (
       <>
-        <button className="btn secondary-middle" onClick={onLogoutClick}>
+        <button className="btn secondary-middle text-sm font-medium" onClick={onLogoutClick}>
           {t.logout}
         </button>
       </>
@@ -27,7 +27,7 @@ export const LogOutButton: FC = () => {
   } else {
     return (
       <>
-        <button className="btn-gray-out non-clickable">
+        <button className="btn-gray-out non-clickable text-sm font-medium">
           {t.logout}
         </button>
       </>
