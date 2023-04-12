@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { toast } from 'react-toastify';
+import confetti from 'canvas-confetti'
 
 import { useAppContext } from "@/middleware/context-provider";
 
@@ -15,6 +16,16 @@ export const Authenticator:FC= () => {
   
   const notifyLogin = (userName : String | null) => {
     toast.success(`${userName}, welcome !`)
+    confetti({
+      zIndex: 999,
+      particleCount: 100,
+      spread: 160,
+      angle: -100,
+      origin: {
+        x: 1,
+        y: 0,
+      }
+    })
   }
 
   const listenToAuthChanges = () => {
