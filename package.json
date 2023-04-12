@@ -23,14 +23,17 @@
     "flowbite": "^1.6.4",
     "flowbite-react": "^0.4.2",
     "i18next": "^22.4.13",
+    "mapbox-gl": "^2.14.0",
     "next": "13.2.4",
     "next-i18next": "^13.2.2",
     "next-themes": "^0.2.1",
+    "openbim-components": "^0.0.51",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "^12.2.0",
     "react-toastify": "^9.1.1",
+    "three": "^0.135.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {
