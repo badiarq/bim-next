@@ -5,7 +5,7 @@ import { Navbar } from '@/components/navbar'
 import { useLanguageContext } from "@/middleware";
 import { BasicLayoutType, Dictionary } from "@/interfaces";
 
-export const BasicLayout:FC<BasicLayoutType> = ({title, description, keywords, children}) => {
+export const SideBarLayout:FC<BasicLayoutType> = ({title, description, keywords, children}) => {
 
   const setCurrentLanguage = useLanguageContext()[0]
   const t:Dictionary = useLanguageContext()[1];
@@ -23,14 +23,9 @@ export const BasicLayout:FC<BasicLayoutType> = ({title, description, keywords, c
         </Head>
       
       <main className="main flex flex-row">
-        <div className="submenu hidden"></div>
-          <div className="main-board">
+          {children}
+          <div className="main-board w-full">
             <Navbar />
-            <div className="description">
-
-                {children}
-
-            </div>
           </div>
       </main>
     </>

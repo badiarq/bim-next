@@ -72,7 +72,7 @@ export function Navbar() {
 
     return (
         <div className="navbar h-10">
-            <nav className="flex flex-row justify-around bg-primary-middle text-white dark:bg-lightyellow dark:text-primary-dark h-10 items-center">
+            <nav className="flex flex-row justify-around px-5 bg-primary-middle text-white dark:text-primary-dark h-10 items-center">
                 <div className="nav-titles flex">
                     {navMenuGenerator}
                 </div>
