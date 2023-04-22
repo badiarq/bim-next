@@ -7,16 +7,19 @@ export const TestElement: FC = () => {
 
   let subMenu:HTMLElement | null = null;
   let arrowButton:HTMLElement | null = null;
+  let sideBar:HTMLElement | null = null;
   let sideBarTab:HTMLElement | null = null;
   
   useEffect(() => {
     subMenu = document.querySelector("#submenu")
     arrowButton = document.querySelector("#arrow")
-    sideBarTab = document.querySelector(".sidebar")
+    sideBar = document.querySelector(".sidebar")
+    sideBarTab = document.querySelector(".sideBarTab")
 
     dropdown();
+    
 
-  }, []);
+  }, [openSidebar]);
 
   function dropdown() {
     subMenu!.classList.toggle("hidden");
@@ -24,25 +27,57 @@ export const TestElement: FC = () => {
   }
 
   function openSidebar() {
-    sideBarTab!.classList.toggle("hidden");
+    if(sideBarTab?.classList.contains("w-12")) {
+      console.log(sideBarTab);
+      sideBarTab!.classList.remove("w-12");
+      sideBar!.classList.remove("w-12");
+      sideBarTab!.classList.add("w-72");
+      sideBar!.classList.add("w-auto");
+    } else if (sideBarTab?.classList.contains("w-72")) { 
+      console.log(sideBarTab)
+      sideBarTab!.classList.remove("w-72");
+      sideBar!.classList.remove("w-auto");
+      sideBarTab!.classList.add("w-12");
+      sideBar!.classList.add("w-12");
+    } else {
+      console.log('WARNING');
+      console.log(sideBarTab);
+      console.log(sideBar);
+    }
   }
+  
   return (
-          // <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sint suscipit voluptate fugit nobis excepturi asperiores aspernatur maiores inventore similique.</p>
       <>
-        <div className="sideBarTab w-72"> 
-          <span
-            className="absolute text-secondary-dark dark:text-white text-4xl top-5 left-4 cursor-pointer"
-            onClick={openSidebar}
-          >
-            <i className="bi bi-filter-left px-2 bg-white dark:bg-dark rounded-md"></i>
-          </span>
+        <div className="sideBarTab w-12"> 
+          {/* <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"></i>
           <div
-            className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-72 overflow-y-auto text-center bg-white dark:bg-primary-dark"
+            className="relative z-10 text-secondary-dark text-4xl top-5 left-4 cursor-pointer"
+            onClick={openSidebar}
+          >Menu
+          </div> */}
+          
+          <div className="p-2.5 mt-1 flex items-center">
+            <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"
+                onClick={openSidebar}
+              ></i>
+            {/* <h1 className="font-bold text-gray-200 text-[16px] ml-3">Menu</h1> */}
+            <i
+              className="bi bi-x cursor-pointer ml-28 lg:hidden"
+              onClick={openSidebar}
+            ></i>
+          </div>
+
+
+
+          <div
+            className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-12 overflow-y-auto text-center bg-primary-dark dark:border-r dark:border-white dark:border-solid dark:shadow-lg"
           >
             <div className="text-gray-100 text-xl">
               <div className="p-2.5 mt-1 flex items-center">
-                <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"></i>
-                <h1 className="font-bold text-gray-200 text-[15px] ml-3">TailwindCSS</h1>
+                <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"
+                   onClick={openSidebar}
+                  ></i>
+                <h1 className="font-bold text-gray-200 text-[16px] ml-3">Menu</h1>
                 <i
                   className="bi bi-x cursor-pointer ml-28 lg:hidden"
                   onClick={openSidebar}
@@ -51,30 +86,30 @@ export const TestElement: FC = () => {
               <div className="my-2 bg-gray-600 h-[1px]"></div>
             </div>
             <div
-              className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-secondary-dark dark:text-white"
+              className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-primary-middle text-white"
             >
               <i className="bi bi-search text-sm"></i>
               <input
                 type="text"
                 placeholder="Search"
-                className="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+                className="text-[15px] ml-4 w-full bg-transparent focus:outline-none placeholder:text-primary-light"
               />
             </div>
             <div
-              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark dark:text-white"
+              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
             >
               <i className="bi bi-house-door-fill"></i>
               <span className="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
             </div>
             <div
-              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark dark:text-white"
+              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
             >
               <i className="bi bi-bookmark-fill"></i>
               <span className="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
             </div>
             <div className="my-4 bg-gray-600 h-[1px]"></div>
             <div
-              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark dark:text-white"
+              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
               onClick={dropdown}
             >
               <i className="bi bi-chat-left-text-fill"></i>
@@ -100,7 +135,7 @@ export const TestElement: FC = () => {
               </h1>
             </div>
             <div
-              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark dark:text-white"
+              className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
             >
               <i className="bi bi-box-arrow-in-right"></i>
               <span className="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
