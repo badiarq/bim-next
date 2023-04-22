@@ -21,13 +21,8 @@ export const SideBarLayout:FC<BasicLayoutType> = ({title, description, keywords,
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
         </Head>
-      
-      <main className="main flex flex-row">
           {children}
-          <div className="main-board w-full">
-            <Navbar />
-          </div>
-      </main>
+          <Navbar />
     </>
   )
 }

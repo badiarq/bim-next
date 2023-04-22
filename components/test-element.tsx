@@ -9,12 +9,16 @@ export const TestElement: FC = () => {
   let arrowButton:HTMLElement | null = null;
   let sideBar:HTMLElement | null = null;
   let sideBarTab:HTMLElement | null = null;
+  let sideMenuText:HTMLElement | null = null;
+  let nbMenuButtons:number = 0;
   
   useEffect(() => {
     subMenu = document.querySelector("#submenu")
     arrowButton = document.querySelector("#arrow")
     sideBar = document.querySelector(".sidebar")
     sideBarTab = document.querySelector(".sideBarTab")
+    // sideMenuText = document.querySelector(".sidebar-menu-text")
+    nbMenuButtons = document.querySelectorAll(".sidebar-menu-text").length
 
     dropdown();
     
@@ -27,50 +31,42 @@ export const TestElement: FC = () => {
   }
 
   function openSidebar() {
-    if(sideBarTab?.classList.contains("w-12")) {
-      console.log(sideBarTab);
-      sideBarTab!.classList.remove("w-12");
-      sideBar!.classList.remove("w-12");
-      sideBarTab!.classList.add("w-72");
-      sideBar!.classList.add("w-auto");
-    } else if (sideBarTab?.classList.contains("w-72")) { 
-      console.log(sideBarTab)
-      sideBarTab!.classList.remove("w-72");
-      sideBar!.classList.remove("w-auto");
-      sideBarTab!.classList.add("w-12");
-      sideBar!.classList.add("w-12");
-    } else {
-      console.log('WARNING');
-      console.log(sideBarTab);
-      console.log(sideBar);
-    }
+    // if(sideBarTab?.classList.contains("w-12")) {
+    //   sideBarTab!.classList.remove("w-12");
+    //   sideBar!.classList.remove("w-12");
+    //   sideBarTab!.classList.add("w-72");
+    //   sideBar!.classList.add("w-auto");
+    //   // sideMenuText!.classList.toggle('hidden');
+    // } else if (sideBarTab?.classList.contains("w-72")) { 
+    //   sideBarTab!.classList.remove("w-72");
+    //   sideBar!.classList.remove("w-auto");
+    //   sideBarTab!.classList.add("w-12");
+    //   sideBar!.classList.add("w-12");
+    //   for (let index = 1; index < nbMenuButtons; index++) {
+    //     console.log(index)
+    //     sideMenuText = document.querySelector(`.sidebar-menu-text:nth-of-type(${index})`)
+    //     console.log(sideMenuText)
+    //     sideMenuText!.classList.toggle('hidden');
+    //   }
+    // }
   }
   
   return (
       <>
-        <div className="sideBarTab w-12"> 
-          {/* <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"></i>
-          <div
-            className="relative z-10 text-secondary-dark text-4xl top-5 left-4 cursor-pointer"
-            onClick={openSidebar}
-          >Menu
-          </div> */}
+        <div className="sideBarTab w-12 hover:w-72 absolute"> 
           
           <div className="p-2.5 mt-1 flex items-center">
             <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"
                 onClick={openSidebar}
               ></i>
-            {/* <h1 className="font-bold text-gray-200 text-[16px] ml-3">Menu</h1> */}
             <i
               className="bi bi-x cursor-pointer ml-28 lg:hidden"
               onClick={openSidebar}
             ></i>
           </div>
 
-
-
           <div
-            className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-12 overflow-y-auto text-center bg-primary-dark dark:border-r dark:border-white dark:border-solid dark:shadow-lg"
+            className="sidebar"
           >
             <div className="text-gray-100 text-xl">
               <div className="p-2.5 mt-1 flex items-center">
@@ -85,6 +81,7 @@ export const TestElement: FC = () => {
               </div>
               <div className="my-2 bg-gray-600 h-[1px]"></div>
             </div>
+
             <div
               className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-primary-middle text-white"
             >
@@ -95,6 +92,23 @@ export const TestElement: FC = () => {
                 className="text-[15px] ml-4 w-full bg-transparent focus:outline-none placeholder:text-primary-light"
               />
             </div>
+
+            <div id="sidebar-menu-container" className="grid grid-cols-1 gap-2 bg-red-500">
+              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
+                <div className="sidebar-menu-img w-8 bg-blue-500">Hello</div>
+                <div className="sidebar-menu-text bg-green-500">Text</div>
+              </div>
+              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
+                <div className="sidebar-menu-img w-8 bg-blue-500">Hi</div>
+                <div className="sidebar-menu-text bg-green-500">Text</div>
+              </div>
+              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
+                <div className="sidebar-menu-img w-8 bg-blue-500">bYE</div>
+                <div className="sidebar-menu-text bg-green-500">Text</div>
+              </div>
+            </div>
+
+
             <div
               className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
             >
