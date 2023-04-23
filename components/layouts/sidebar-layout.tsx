@@ -22,7 +22,7 @@ export const SideBarLayout:FC<BasicLayoutType> = ({title, description, keywords,
             <meta name="keywords" content={keywords} />
         </Head>
           {children}
-          <Navbar />
+         <Navbar />    
     </>
   )
 }

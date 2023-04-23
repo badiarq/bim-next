@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import '../styles/globals.css'; */
 
 
 body, html, #app, .App, .home {
@@ -124,13 +123,12 @@ body, html, #app, .App, .home {
 }
 
 .sidebar {
-    @apply fixed top-0 bottom-0  lg:left-0 m-2 p-1 rounded-lg overflow-y-auto text-center bg-primary-dark dark:border-r dark:border-white dark:border-solid dark:shadow-lg;
-    /* w-12 */
-    transition: width 1s;
+    @apply fixed top-0 bottom-0 lg:left-0 m-2 p-1 rounded-lg text-center bg-primary-dark dark:border-r dark:border-white dark:border-solid dark:shadow-lg;
+    transition: width 500ms ease-in;
     width: 3rem;
 }
 
 .sidebar:hover { 
     @apply bg-opacity-50 backdrop-blur ;
-    width: 23rem;
+    width: 16rem;
 }

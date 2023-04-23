@@ -11,6 +11,7 @@ export const TestElement: FC = () => {
   let sideBarTab:HTMLElement | null = null;
   let sideMenuText:HTMLElement | null = null;
   let nbMenuButtons:number = 0;
+  let menuTitle:HTMLElement | null = null;
   
   useEffect(() => {
     subMenu = document.querySelector("#submenu")
@@ -19,6 +20,7 @@ export const TestElement: FC = () => {
     sideBarTab = document.querySelector(".sideBarTab")
     // sideMenuText = document.querySelector(".sidebar-menu-text")
     nbMenuButtons = document.querySelectorAll(".sidebar-menu-text").length
+    menuTitle = document.querySelector("#menu-title")
 
     dropdown();
     
@@ -31,6 +33,10 @@ export const TestElement: FC = () => {
   }
 
   function openSidebar() {
+    setTimeout(function() {
+      menuTitle!.classList.remove("hidden");
+    }, (0.1*1000));
+
     // if(sideBarTab?.classList.contains("w-12")) {
     //   sideBarTab!.classList.remove("w-12");
     //   sideBar!.classList.remove("w-12");
@@ -50,37 +56,38 @@ export const TestElement: FC = () => {
     //   }
     // }
   }
+
+  function closeSidebar() {
+
+    setTimeout(function() {
+      menuTitle!.classList.add("hidden");
+    }, (0.3*1000));
+  }
   
   return (
-      <>
-        <div className="sideBarTab w-12 hover:w-72 absolute"> 
-          
-          <div className="p-2.5 mt-1 flex items-center">
-            <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"
-                onClick={openSidebar}
-              ></i>
-            <i
-              className="bi bi-x cursor-pointer ml-28 lg:hidden"
-              onClick={openSidebar}
-            ></i>
-          </div>
+      <div
+      onMouseEnter={openSidebar}
+      onMouseLeave={closeSidebar}
+      >
+      
+        <div className="sideBarTab w-12 hover:w-72 absolute"
+        > 
 
           <div
             className="sidebar"
           >
-            <div className="text-gray-100 text-xl">
-              <div className="p-2.5 mt-1 flex items-center">
-                <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-primary-middle"
-                   onClick={openSidebar}
-                  ></i>
-                <h1 className="font-bold text-gray-200 text-[16px] ml-3">Menu</h1>
-                <i
-                  className="bi bi-x cursor-pointer ml-28 lg:hidden"
-                  onClick={openSidebar}
-                ></i>
+
+            <div className="sidebar-menu-section flex flex-row">
+              <div className="text-gray-100 text-xl flex flex-row  w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="white" className="w-10 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" 
+                  />
+                </svg>
+                <h1 id="menu-title" className="hidden text-gray-200 h-6 text-base font-bold">Menu</h1>
               </div>
-              <div className="my-2 bg-gray-600 h-[1px]"></div>
             </div>
+
+            <div className="my-2 bg-gray-500 h-[1px]"></div>
 
             <div
               className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-primary-middle text-white"
@@ -95,7 +102,13 @@ export const TestElement: FC = () => {
 
             <div id="sidebar-menu-container" className="grid grid-cols-1 gap-2 bg-red-500">
               <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
-                <div className="sidebar-menu-img w-8 bg-blue-500">Hello</div>
+                <div className="sidebar-menu-img w-8 bg-blue-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" 
+                      onClick={openSidebar}
+                    />
+                  </svg>
+                </div>
                 <div className="sidebar-menu-text bg-green-500">Text</div>
               </div>
               <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
@@ -121,7 +134,7 @@ export const TestElement: FC = () => {
               <i className="bi bi-bookmark-fill"></i>
               <span className="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
             </div>
-            <div className="my-4 bg-gray-600 h-[1px]"></div>
+            <div className="my-4 bg-gray-500 h-[1px]"></div>
             <div
               className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-primary-middle text-secondary-dark"
               onClick={dropdown}
@@ -156,6 +169,6 @@ export const TestElement: FC = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
   )
 };
