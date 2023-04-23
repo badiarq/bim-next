@@ -41,7 +41,7 @@ export const SideBar: FC = () => {
   function showMenuTexts(){
     const allTexts = Array.from(document.getElementsByClassName('sidebar-menu-text') as HTMLCollectionOf<HTMLElement>);
     for (const menuText of allTexts) {
-      if(menuText.style.display == 'none') {
+      if(menuText.style.display != 'block') {
         menuText.style.display = 'block';
       }
     }
@@ -116,7 +116,7 @@ export const SideBar: FC = () => {
                 <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
               </svg>
               <div className="sidebar-menu-text">
-                <div className="grid grid-cols-5">
+                <div className="grid grid-cols-5 w-max">
                   <span className="font-bold col-span-4 self-center justify-self-start select-none">{t.BIMPlatform}</span>
                   <svg id="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="sidebar-menu-img rotate-0">
                     <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
