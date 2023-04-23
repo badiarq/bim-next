@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 import { useAppContext } from "@/middleware";
 import { useLanguageContext } from "@/middleware";
 
-export const LogOutButton: FC = () => {
+import { classesTypes } from "@/interfaces";
+
+export const LogOutButtonTransparent: FC<classesTypes> = ({classNames}) => {
   
   const state = useAppContext()[0];
   const dispatch = useAppContext()[1];
@@ -19,7 +21,7 @@ export const LogOutButton: FC = () => {
   if(state.user) {
     return (
       <>
-        <button className="btn secondary-middle text-sm font-medium w-full" onClick={onLogoutClick}>
+        <button className={`text-sm font-medium w-full ${classNames}`} onClick={onLogoutClick}>
           {t.logout}
         </button>
       </>

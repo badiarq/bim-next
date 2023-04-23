@@ -6,3 +6,7 @@ export interface BasicLayoutType {
     keywords: string;
     children: ReactNode;
 }
+
+export interface classesTypes {
+    classNames?: string;
+}

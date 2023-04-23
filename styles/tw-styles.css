@@ -16,6 +16,29 @@ body, html, #app, .App, .home {
     box-sizing: border-box;
 }
 
+
+[title] {
+    position: relative;
+  }
+
+[title]:after {
+    content: attr(title);
+    position: absolute;
+    left: 20%;
+    top: 80%;
+    background-color:rgba(220, 220, 220, 0.5); ;
+    width: max-content;
+    padding: 5px 3px;
+    border-radius: 10px;
+    display: none;
+    transition: opacity 0.75s ease-in-oute;
+    -webkit-transition: opacity 0.75s ease-in-out;
+}
+
+[title]:hover:after {
+display: block;
+}
+
 @layer base{
     [type='text'],
     [type='email'],
@@ -129,6 +152,18 @@ body, html, #app, .App, .home {
 }
 
 .sidebar:hover { 
-    @apply bg-opacity-50 backdrop-blur ;
+    /* @apply bg-opacity-50 backdrop-blur ; */
     width: 16rem;
+}
+
+.sidebar-menu-button {
+    @apply grid grid-cols-6 gap-1 h-10 items-center rounded-md cursor-pointer hover:bg-primary-middle hover:shadow-lg text-gray-200
+}
+
+.sidebar-menu-text {
+    @apply hidden col-span-5 text-[15px] text-gray-200 self-center justify-self-start select-none
+}
+
+.sidebar-menu-img { 
+    @apply w-10 h-6
 }

@@ -38,6 +38,7 @@ export interface Dictionary {
     project:                   string;
     projectManagement:         string;
     projects:                  string;
+    search:                    string;
     select:                    string;
     signinToContinue:          string;
     signUp:                    string;

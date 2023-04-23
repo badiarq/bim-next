@@ -20,12 +20,7 @@ interface ILoginProps {
   isSignUpClicked?: boolean;
 }
 
-const handleOnClick = () => {
-  console.log('clicked')
-}
-
 export const LoginTab:FC<ILoginProps> = ({ isSignUpClicked }) => {
-  const userState = useAppContext()[0];
   const t:Dictionary = useLanguageContext()[1];
   const [singUpClickedStatus, setSingUpClickedStatus] = useState<boolean>(!!isSignUpClicked);
 
