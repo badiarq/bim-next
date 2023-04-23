@@ -41,14 +41,18 @@ export const SideBar: FC = () => {
   function showMenuTexts(){
     const allTexts = Array.from(document.getElementsByClassName('sidebar-menu-text') as HTMLCollectionOf<HTMLElement>);
     for (const menuText of allTexts) {
-      menuText.style.display = 'block';
+      if(menuText.style.display == 'none') {
+        menuText.style.display = 'block';
+      }
     }
   };
 
   function hideMenuTexts(){
     const allTexts = Array.from(document.getElementsByClassName('sidebar-menu-text') as HTMLCollectionOf<HTMLElement>);
     for (const menuText of allTexts) {
-      menuText.style.display = 'none';
+      if(menuText.style.display == 'block') {
+        menuText.style.display = 'none';
+      }
     }
   };
 
