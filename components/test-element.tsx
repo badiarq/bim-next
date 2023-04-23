@@ -7,23 +7,14 @@ export const TestElement: FC = () => {
 
   let subMenu:HTMLElement | null = null;
   let arrowButton:HTMLElement | null = null;
-  let sideBar:HTMLElement | null = null;
-  let sideBarTab:HTMLElement | null = null;
-  let sideMenuText:HTMLElement | null = null;
-  let nbMenuButtons:number = 0;
   let menuTitle:HTMLElement | null = null;
   
   useEffect(() => {
     subMenu = document.querySelector("#submenu")
     arrowButton = document.querySelector("#arrow")
-    sideBar = document.querySelector(".sidebar")
-    sideBarTab = document.querySelector(".sideBarTab")
-    // sideMenuText = document.querySelector(".sidebar-menu-text")
-    nbMenuButtons = document.querySelectorAll(".sidebar-menu-text").length
-    menuTitle = document.querySelector("#menu-title")
+    // menuTitle = document.querySelector("#menu-title")
 
     dropdown();
-    
 
   }, [openSidebar]);
 
@@ -34,90 +25,79 @@ export const TestElement: FC = () => {
 
   function openSidebar() {
     setTimeout(function() {
-      menuTitle!.classList.remove("hidden");
-    }, (0.1*1000));
+      showMenuTexts()
+    }, (0.3*1000));
 
-    // if(sideBarTab?.classList.contains("w-12")) {
-    //   sideBarTab!.classList.remove("w-12");
-    //   sideBar!.classList.remove("w-12");
-    //   sideBarTab!.classList.add("w-72");
-    //   sideBar!.classList.add("w-auto");
-    //   // sideMenuText!.classList.toggle('hidden');
-    // } else if (sideBarTab?.classList.contains("w-72")) { 
-    //   sideBarTab!.classList.remove("w-72");
-    //   sideBar!.classList.remove("w-auto");
-    //   sideBarTab!.classList.add("w-12");
-    //   sideBar!.classList.add("w-12");
-    //   for (let index = 1; index < nbMenuButtons; index++) {
-    //     console.log(index)
-    //     sideMenuText = document.querySelector(`.sidebar-menu-text:nth-of-type(${index})`)
-    //     console.log(sideMenuText)
-    //     sideMenuText!.classList.toggle('hidden');
-    //   }
-    // }
   }
 
   function closeSidebar() {
 
     setTimeout(function() {
-      menuTitle!.classList.add("hidden");
-    }, (0.3*1000));
+      hideMenuTexts()
+    }, (0.5*1000));
+
+
   }
+
+  function hideMenuTexts(){
+    const allTexts = Array.from(document.getElementsByClassName('sidebar-menu-text') as HTMLCollectionOf<HTMLElement>);
+    for (const menuText of allTexts) {
+      // menuText.style.display = 'none';
+      menuText.classList.add('hidden');
+    }
+  };
+
+  function showMenuTexts(){
+    const allTexts = Array.from(document.getElementsByClassName('sidebar-menu-text') as HTMLCollectionOf<HTMLElement>);
+    for (const menuText of allTexts) {
+      // menuText.style.display = 'block';
+      menuText.classList.remove('hidden');
+    }
+  };
   
   return (
-      <div
-      onMouseEnter={openSidebar}
-      onMouseLeave={closeSidebar}
-      >
-      
+      <>
         <div className="sideBarTab w-12 hover:w-72 absolute"
+              onMouseEnter={openSidebar}
+              onMouseLeave={closeSidebar}
         > 
 
           <div
             className="sidebar"
           >
 
-            <div className="sidebar-menu-section flex flex-row">
+            <div className="sidebar-menu-section flex flex-row my-3">
               <div className="text-gray-100 text-xl flex flex-row  w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="white" className="w-10 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" 
                   />
                 </svg>
-                <h1 id="menu-title" className="hidden text-gray-200 h-6 text-base font-bold">Menu</h1>
+                <h1 id="menu-title" className="sidebar-menu-text hidden text-gray-200 h-6 text-base font-bold">Menu</h1>
               </div>
             </div>
 
             <div className="my-2 bg-gray-500 h-[1px]"></div>
 
-            <div
-              className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-primary-middle text-white"
-            >
-              <i className="bi bi-search text-sm"></i>
-              <input
-                type="text"
-                placeholder="Search"
-                className="text-[15px] ml-4 w-full bg-transparent focus:outline-none placeholder:text-primary-light"
-              />
-            </div>
+            <div id="sidebar-menu-container" className="grid grid-cols-1 gap-3">
 
-            <div id="sidebar-menu-container" className="grid grid-cols-1 gap-2 bg-red-500">
-              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
-                <div className="sidebar-menu-img w-8 bg-blue-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" 
-                      onClick={openSidebar}
-                    />
-                  </svg>
-                </div>
-                <div className="sidebar-menu-text bg-green-500">Text</div>
+              <div className="grid grid-cols-6 gap-1 pr-2 h-12 w-full text-gray-100 items-center rounded-md cursor-pointer bg-primary-middle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-5">
+                  <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="sidebar-menu-text hidden col-span-5 h-8 text-[14px] bg-transparent focus:outline-none placeholder:text-primary-light"
+                />
               </div>
-              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
-                <div className="sidebar-menu-img w-8 bg-blue-500">Hi</div>
-                <div className="sidebar-menu-text bg-green-500">Text</div>
+
+              <div className="sidebar-menu-button grid grid-cols-6 gap-1 bg-yellow-200">
+                <div className="sidebar-menu-img w-10 bg-blue-500">Hi</div>
+                <div className="sidebar-menu-text hidden col-span-5 bg-green-500">Text</div>
               </div>
-              <div className="sidebar-menu-button grid grid-cols-2 gap-2 bg-yellow-200">
-                <div className="sidebar-menu-img w-8 bg-blue-500">bYE</div>
-                <div className="sidebar-menu-text bg-green-500">Text</div>
+              <div className="sidebar-menu-button grid grid-cols-6 gap-1 bg-yellow-200">
+                <div className="sidebar-menu-img w-10 bg-blue-500">bYE</div>
+                <div className="sidebar-menu-text hidden col-span-5 bg-green-500">Text</div>
               </div>
             </div>
 
@@ -169,6 +149,6 @@ export const TestElement: FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </>
   )
 };
